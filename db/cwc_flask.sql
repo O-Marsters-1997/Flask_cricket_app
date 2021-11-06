@@ -1,4 +1,6 @@
 DROP TABLE IF EXISTS group_1_teams;
+DROP TABLE IF EXISTS group_2_teams;
+
 
 CREATE TABLE group_1_teams (
     id SERIAL PRIMARY KEY,
@@ -6,7 +8,6 @@ CREATE TABLE group_1_teams (
     points VARCHAR(255)
 );
 
-DROP TABLE IF EXISTS group_2_teams;
 
 CREATE TABLE group_2_teams (
     id SERIAL PRIMARY KEY,

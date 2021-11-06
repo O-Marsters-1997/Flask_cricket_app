@@ -3,6 +3,9 @@ from models.team import Team
 import repositories.group_1_team_repository as group_1_team_repository
 import repositories.group_2_team_repository as group_2_team_repository
 
+group_1_team_repository.delete_all()
+group_2_team_repository.delete_all()
+
 #Group1
 team1_group1 = Team('Australia', 0)
 group_1_team_repository.save(team1_group1)
@@ -30,3 +33,9 @@ team5_group2 = Team('Pakistan', 0)
 group_2_team_repository.save(team5_group2)
 team6_group2 = Team('Scotland', 0)
 group_2_team_repository.save(team6_group2)
+
+
+# print(group_1_team_repository.select_all())
+# print(group_2_team_repository.select_all())
+# print(group_1_team_repository.select(team5_group1.id).name)
+
