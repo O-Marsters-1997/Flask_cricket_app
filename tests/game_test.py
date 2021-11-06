@@ -17,5 +17,3 @@ class TestGame(unittest.TestCase):
         self.assertEqual("West Indies", self.game.determine_winner(game))
         game = Game("England", "West Indies", 55, 55, "England")
         self.assertEqual(None, self.game.determine_winner(game))
-
-
