@@ -8,7 +8,7 @@ from models.team import Team
 
 
 def save(team):
-    sql = "INSERT INTO teams (name) VALUES (%s) RETURNING *"
+    sql = "INSERT INTO group_2_teams (name) VALUES (%s) RETURNING *"
     values = [team.name]
     results = run_sql(sql, values)
     # pdb.set_trace()
