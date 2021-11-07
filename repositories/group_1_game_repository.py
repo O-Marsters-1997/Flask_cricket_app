@@ -5,10 +5,7 @@ from models.team import Team
 from models.game import Game
 
 import repositories.group_1_team_repository as group_1_team_repository
-import repositories.group_2_team_repository as group_2_team_repository
 
-import repositories.group_1_game_repository as group_1_game_repository
-import repositories.group_2_team_repository as group_2_game_repository
 
 # Create game
 def save(game):
@@ -29,8 +26,10 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        game = Game(result['team_1'], result['team_2'], result['team_1_runs'], result['team_2_runs'])
+        game = Game(result['team_1'], result['team_2'],
+                    result['team_1_runs'], result['team_2_runs'])
     return game
+
 
 #Select all games
 def select_all():
@@ -59,10 +58,20 @@ def sort_games_date():
     return sorted_games
 
 
+#edit games
+def update(game):
+    sql = 'UPDATE group_1_games SET (team_1_id, team_2_id, team_1_runs, team_2_runs, game_date) = (%s, %s, %s, %s, %s) WHERE id = %s'
+    values = [game.team_1.id, game.team_2.id, game.team_1_runs, game.team_2_runs, game.game_date, game.id]
+    run_sql(sql, values)
+
 #Delete game
+def delete(id):
+    sql = 'DELETE FROM group_1_games WHERE id = %s'
+    values = [id]
+    run_sql(sql, values)    
+
 
 # Delete all games
-
 def delete_all():
     sql = 'DELETE FROM group_1_games'
     run_sql(sql)

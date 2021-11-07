@@ -60,10 +60,27 @@ game_4_group_1 = Game(team1_group1, team3_group1, 220, 45, '1820-01-01 00:00:00.
 group_1_game_repository.save(game_4_group_1)
 game_5_group_1 = Game(team2_group1, team4_group1, 135, 136, '2019-01-08 00:00:00.00')
 group_1_game_repository.save(game_5_group_1)
+game_6_group_1 = Game(team1_group1, team6_group1, 135, 136, '2019-01-08 00:00:00.00')
+group_1_game_repository.save(game_6_group_1)
+game_7_group_1 = Game(team5_group1, team1_group1, 135, 136, '2019-01-08 00:00:00.00')
+group_1_game_repository.save(game_7_group_1)
 
-sorted_games = group_1_game_repository.sort_games_date()
-for game in sorted_games:
-    print(game.team_1.name)
+
+
+# game_5_group_1 = Game(team2_group1, team1_group1, 135, 136, '2000-01-08 00:00:00.00')
+# group_1_game_repository.update(game_5_group_1)
+
+
+# games = group_1_team_repository.games(team1_group1)
+# for game in games:
+#     print(game.__dict__)
+
+# group_1_game_repository.delete(game_5_group_1.id)
+
+
+# sorted_games = group_1_game_repository.sort_games_date()
+# for game in sorted_games:
+#     print(game.team_1.name)
     # pdb.set_trace()
 
 
