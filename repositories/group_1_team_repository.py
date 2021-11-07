@@ -63,7 +63,7 @@ def games(team):
     results_1 = run_sql(sql_1, values)
     for row in results_1:
         game = Game(row['team_1_id'], row['team_2_id'], row['team_1_runs'], row['team_2_runs'], row['game_date'], row['id'])
-        games.append(game)
+        games.append(game) 
 
     return games
 
