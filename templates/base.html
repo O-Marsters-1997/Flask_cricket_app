@@ -9,14 +9,28 @@
 </head>
 <body>
     <div class="app-grid-container">
-        <div class="header-container">Header</div>
-        <div class="sidebar">Sidebar</div>
-        <div class="main">Main
+        <header class="header-container">Header
+            <nav>
+                <img src="src/img/placeholder.png" alt="cricket logo">
+                <ul class="nav-list">
+                    <li class="nav-item">Quick links</li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <aside class="sidebar">Sidebar
+        </aside>
+        
+        <main class="main">Main
             {% block content %}
             {% endblock %}
-        </div>
+        </main>
             
-        <div class="footer">Footer</div>
+        <footer class="footer">Footer
+
+        </footer>
     </div>
 
     
