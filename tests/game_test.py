@@ -2,6 +2,9 @@ import unittest
 from models.game import Game
 from models.team import Team
 
+import repositories.group_1_game_repository as group_1_game_repository
+import repositories.group_2_game_repository as group_2_game_repository
+
 class TestGame(unittest.TestCase):
     def setUp(self):
         self.team_1 = Team("England", 4)

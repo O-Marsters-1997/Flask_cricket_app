@@ -21,5 +21,3 @@ class TestTeam(unittest.TestCase):
         self.team.victory(self.team)
         self.assertEqual(6, self.team.points)
 
-    # Crud action Tests
-
