@@ -37,6 +37,16 @@ def select_all():
     return teams
 
 
+def sort_teams_rank():
+    teams = []
+    sql = 'SELECT * FROM group_1_teams ORDER BY points DESC'
+    results = run_sql(sql)
+
+    for row in results:
+        team = Team(row['name'], row['points'], row['id'])
+        teams.append(team)
+    return teams
+
 def delete_all():
     sql = 'DELETE FROM group_1_teams'
     run_sql(sql)

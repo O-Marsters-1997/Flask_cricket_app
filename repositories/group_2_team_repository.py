@@ -8,8 +8,8 @@ from models.team import Team
 
 
 def save(team):
-    sql = "INSERT INTO group_2_teams (name) VALUES (%s) RETURNING *"
-    values = [team.name]
+    sql = "INSERT INTO group_2_teams (name, points) VALUES (%s, %s) RETURNING *"
+    values = [team.name, team.points]
     results = run_sql(sql, values)
     # pdb.set_trace()
     id = results[0]['id']
@@ -28,7 +28,18 @@ def select(id):
 
 def select_all():
     teams = []
-    sql = 'SELECT * FROM group_1_teams'
+    sql = 'SELECT * FROM group_2_teams'
+    results = run_sql(sql)
+
+    for row in results:
+        team = Team(row['name'], row['points'], row['id'])
+        teams.append(team)
+    return teams
+
+
+def sort_teams_rank():
+    teams = []
+    sql = 'SELECT * FROM group_2_teams ORDER BY points DESC'
     results = run_sql(sql)
 
     for row in results:
