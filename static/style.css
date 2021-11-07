@@ -2,6 +2,8 @@
     box-sizing: border-box;
     margin: 0;
 }
+/* General Layout*/
+
 
 .app-grid-container {
     height: 100%;
@@ -32,4 +34,11 @@
 .footer {
     background-color: purple;
     grid-area: footer;
+}
+
+/* Header Section*/
+
+img {
+    height: 50px;
+    width: auto;
 }
