@@ -8,8 +8,8 @@ from models.team import Team
 
 
 def save(team):
-    sql = "INSERT INTO group_1_teams (name) VALUES (%s) RETURNING *"
-    values = [team.name]
+    sql = "INSERT INTO group_1_teams (name, points) VALUES (%s, %s) RETURNING *"
+    values = [team.name, team.points]
     results = run_sql(sql, values)
     # pdb.set_trace()
     id = results[0]['id']

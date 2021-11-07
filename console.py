@@ -1,7 +1,12 @@
 from models.team import Team
+from models.game import Game
 
 import repositories.group_1_team_repository as group_1_team_repository
 import repositories.group_2_team_repository as group_2_team_repository
+
+import repositories.group_1_game_repository as group_1_game_repository
+import repositories.group_2_game_repository as group_2_game_repository
+
 
 group_1_team_repository.delete_all()
 group_2_team_repository.delete_all()
@@ -38,4 +43,7 @@ group_2_team_repository.save(team6_group2)
 # print(group_1_team_repository.select_all())
 # print(group_2_team_repository.select_all())
 # print(group_1_team_repository.select(team5_group1.id).name)
+
+game_1 = Game(team1_group1, team2_group1, 196, 110)
+group_1_game_repository.save(game_1)
 
