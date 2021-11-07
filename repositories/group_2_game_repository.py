@@ -12,9 +12,9 @@ import repositories.group_2_team_repository as group_2_game_repository
 
 
 def save(game):
-    sql = 'INSERT INTO group_2_games (team_1_id, team_2_id, team_1_runs, team_2_runs) VALUES (%s, %s, %s, %s) RETURNING *'
+    sql = 'INSERT INTO group_2_games (team_1_id, team_2_id, team_1_runs, team_2_runs, game_date) VALUES (%s, %s, %s, %s, %s) RETURNING *'
     values = [game.team_1.id, game.team_2.id,
-              game.team_1_runs, game.team_2_runs]
+              game.team_1_runs, game.team_2_runs, game.game_date]
 
     results = run_sql(sql, values)
     id = results[0]['id']

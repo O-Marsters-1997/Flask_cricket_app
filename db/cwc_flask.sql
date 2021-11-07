@@ -22,7 +22,8 @@ CREATE TABLE group_1_games (
     team_1_id INT REFERENCES group_1_teams,
     team_2_id INT REFERENCES group_1_teams,
     team_1_runs INTEGER,
-    team_2_runs INTEGER
+    team_2_runs INTEGER,
+    game_date TIMESTAMP
 );
 
 CREATE TABLE group_2_games (
@@ -30,5 +31,6 @@ CREATE TABLE group_2_games (
     team_1_id INT REFERENCES group_2_teams,
     team_2_id INT REFERENCES group_2_teams,
     team_1_runs INTEGER,
-    team_2_runs INTEGER  
+    team_2_runs INTEGER,
+    game_date TIMESTAMP
 );

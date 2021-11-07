@@ -47,13 +47,17 @@ group_2_team_repository.save(team6_group2)
 # print(group_2_team_repository.select_all())
 # print(group_1_team_repository.select(team5_group1.id).name)
 
-game_1 = Game(team1_group1, team2_group1, 196, 110)
-group_1_game_repository.save(game_1)
+game_1_group_1 = Game(team1_group1, team2_group1, 196, 110, '1970-01-01 00:00:00.00')
+group_1_game_repository.save(game_1_group_1)
 
-sorted_teams_1 = group_1_team_repository.sort_teams_rank()
-for team in sorted_teams_1:
-    print(team.__dict__)
+game_1_group_2 = Game(team1_group2, team2_group2, 220, 10, '1970-01-08 00:00:00.00')
+group_2_game_repository.save(game_1_group_2)
 
-sorted_teams_2 = group_2_team_repository.sort_teams_rank()
-for team in sorted_teams_2:
-    print(team.__dict__)
+
+# sorted_teams_1 = group_1_team_repository.sort_teams_rank()
+# for team in sorted_teams_1:
+#     print(team.__dict__)
+
+# sorted_teams_2 = group_2_team_repository.sort_teams_rank()
+# for team in sorted_teams_2:
+#     print(team.__dict__)
