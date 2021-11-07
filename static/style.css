@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.app-grid-container {
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+                        "header header"
+                        "sidebar main"
+                        "footer footer";
+    grid-template-columns: 1fr 3fr;
+    
+}
+
+.header-container {
+    background-color: red;
+    grid-area: header;
+}
+
+.sidebar {
+    background-color: green;
+    grid-area: sidebar;
+}
+
+.main {
+    background-color: orange;
+    grid-area: main;
+}
+
+.footer {
+    background-color: purple;
+    grid-area: footer;
+}
