@@ -21,6 +21,11 @@ def save(game):
     game.id = id
     return game
 
+#Select all games
+def select_all():
+    games = []
+    sql = 'SELECT * FROM group_2_games'
+
 
 def delete_all():
     sql = 'DELETE FROM group_2_games'

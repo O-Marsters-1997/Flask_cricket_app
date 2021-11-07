@@ -1,3 +1,4 @@
+import pdb
 from models.team import Team
 from models.game import Game
 
@@ -13,6 +14,8 @@ group_2_game_repository.delete_all()
 
 group_1_team_repository.delete_all()
 group_2_team_repository.delete_all()
+
+#User has no control of which teams are in the league, they are pre-defined here instead!
 
 #Group1
 team1_group1 = Team('Australia', 2)
@@ -49,10 +52,26 @@ group_2_team_repository.save(team6_group2)
 
 game_1_group_1 = Game(team1_group1, team2_group1, 196, 110, '1970-01-01 00:00:00.00')
 group_1_game_repository.save(game_1_group_1)
+game_2_group_1 = Game(team3_group1, team4_group1, 160, 140, '1980-01-01 00:00:00.00')
+group_1_game_repository.save(game_2_group_1)
+game_3_group_1 = Game(team5_group1, team6_group1, 85, 86, '1945-01-01 00:00:00.00')
+group_1_game_repository.save(game_3_group_1)
+game_4_group_1 = Game(team1_group1, team3_group1, 220, 45, '1820-01-01 00:00:00.00')
+group_1_game_repository.save(game_4_group_1)
+game_5_group_1 = Game(team2_group1, team4_group1, 135, 136, '2019-01-08 00:00:00.00')
+group_1_game_repository.save(game_5_group_1)
 
-game_1_group_2 = Game(team1_group2, team2_group2, 220, 10, '1970-01-08 00:00:00.00')
-group_2_game_repository.save(game_1_group_2)
+sorted_games = group_1_game_repository.sort_games_date()
+for game in sorted_games:
+    print(game.team_1.name)
+    # pdb.set_trace()
 
+
+
+
+# sorted_games_1 = group_1_game_repository.sort_games_date()
+# for game in sorted_games_1:
+#     print(game.__dict__)
 
 # sorted_teams_1 = group_1_team_repository.sort_teams_rank()
 # for team in sorted_teams_1:
