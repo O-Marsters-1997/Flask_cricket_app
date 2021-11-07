@@ -7,3 +7,11 @@ class Game:
         self.game_date = game_date
         self.id = id
 
+    def determine_winner(self, game):
+        winner = None 
+        if game.team_1_runs > game.team_2_runs:
+            winner = game.team_1.name
+        elif game.team_2_runs > game.team_1_runs:
+            winner = game.team_2.name
+        return f"The winner is {winner}"
+
