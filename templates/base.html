@@ -9,19 +9,28 @@
 </head>
 <body>
     <div class="app-grid-container">
-        <header class="header-container">Header
+        <header class="header">
             <nav>
                 <img src="{{ url_for('static', filename='images/placeholder.png') }}" alt="logo" class = "logo">
                 <ul class="nav-list">
-                    <li class="nav-item">Quick links</li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
+                    <li class="header-list-item"><a href="">Quick Links</a></li>
+                    <li class="header-list-item"><a href="">kdabsfjdasf</a></li>
+                    <li class="header-list-item"><a href="">dalkfbasdjlkf</a></li>
                 </ul>
             </nav>
         </header>
+        <nav class="content-nav">
+            <div class="content-nav-wrapper">
+                <ul class="content-nav-list">
+                    <li class="content-nav-item"><a href="">Teams</a></li>
+                    <li class="content-nav-item"><a href="">Matches</a></li>
+                    <li class="content-nav-item"><a href="">League Table</a></li>
+                    <li class="content-nav-item"><a href="">Players</a></li>
+                </ul>
+            </div>
+        </nav>
     
-        <aside class="sidebar">Sidebar
-        </aside>
+        
         
         <main class="main">Main
             {% block content %}

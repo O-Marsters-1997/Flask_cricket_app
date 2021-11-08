@@ -1,44 +1,192 @@
+/*////////////////////////
+....TABLE OF CONTENTS.....
+/////////////////////////
+
+UNIVERSAL STYLINGS
+... Colour Scheme
+....... Theme
+.......  Text Colours
+... Typography
+... Extras
+
+GENERAL LAYOUT
+...Header
+...Content-nav
+...Sidebar
+...Main Content
+...Footer
+
+HEADER SECTION
+... Header Logo
+... Header Navigation
+*/
+
+
+
+
+
+
+
+/*//////////////////*/
+/*Universal Stylings*/
+:root {
+    /* Colour Scheme */
+    /* Theme*/
+
+    --background-primary: rgba(252, 252, 252);
+    --background-secondary: rgba(68,37,125);
+
+    /*Text Colours*/
+
+
+    --text-primary: rgba(0,0,0);
+    --nav-text: rgba(252, 252, 252);
+
+    /*Typography*/
+
+    /*Extras */
+    --page-width-margin: 90vw;
+    --margin-side: 5vw;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
 }
-/* General Layout*/
 
+/*//////////////////*/
+/*General Layout*/
 
 .app-grid-container {
     height: 100%;
     display: grid;
     grid-template-areas:
                         "header header"
-                        "sidebar main"
+                        "nav nav"
+                        "main main"
                         "footer footer";
     grid-template-columns: 1fr 3fr;
+    grid-template-rows: 10vh 10vh auto 10vh;
     
 }
 
-.header-container {
-    background-color: red;
+/* Header */
+.header {
+    background-color: var(--background-secondary);
     grid-area: header;
 }
 
-.sidebar {
-    background-color: green;
-    grid-area: sidebar;
+/* Content nav */
+.content-nav {
+    border: 2px solid blue;
+    grid-area: nav;
 }
 
+/* Main */
 .main {
-    background-color: orange;
+    border: 2px solid orange;
     grid-area: main;
 }
 
+/* Footer */
 .footer {
-    background-color: purple;
+    border: 2px solid purple;
     grid-area: footer;
 }
 
 /* Header Section*/
 
-img {
+/* Header Logo */
+
+.logo {
     height: 50px;
     width: auto;
+    margin: 0 auto 0 1.5em;
+    filter: invert(100%) sepia(0%) saturate(24%) hue-rotate(114deg) brightness(108%) contrast(108%);
+}
+
+/* Header Navigation */
+
+.header nav {
+    position: relative;
+    height: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-list {
+    display: flex;
+    margin-right: 1.5em;
+}
+
+.header-list-item {
+    padding-right: 1.5em;
+    list-style: none;
+}
+
+.header-list-item a {
+    color: var(--nav-text);
+    text-decoration: none;
+    text-transform: small-caps;
+    cursor: pointer;
+    text-transform: lowercase;
+    padding-bottom: 0.175em;
+}
+.header-list-item a:hover, .header-list-item a:active {
+    border-bottom: 2px solid var(--nav-text);
+}
+
+
+/* Content Navigation */
+
+.content-nav {
+    color: var(--nav-text);
+    background-color: var(--background-secondary); 
+}
+
+.content-nav-wrapper {
+    margin: 0 var(--margin-side);
+    height: 100%;
+}
+
+.content-nav-list {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.content-nav-item {
+    list-style: none;
+    height: 100%;
+    width: 25%;
+    text-align: center;
+    padding-top: 1.25em;
+}
+
+.content-nav-item:hover {
+    background-color: rgba(61,33,112);
+}
+
+
+.content-nav-item a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: 500;
+    height: 100%;
+    vertical-align: center;
+    
+}
+
+
+/*Footer*/
+
+.footer {
+    background-color: var(--background-secondary);
+    color: var(--nav-text); 
 }
