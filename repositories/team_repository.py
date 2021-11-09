@@ -2,14 +2,12 @@ import pdb
 from db.run_sql import run_sql
 
 from models.team import Team
-from models.game import Game
 
-# import repositories.game_repository as game_repository
 
 
 def save(team):
-    sql = "INSERT INTO teams (name, points) VALUES (%s, %s) RETURNING *"
-    values = [team.name, team.points]
+    sql = "INSERT INTO teams (name, points, group_id) VALUES (%s, %s, %s) RETURNING *"
+    values = [team.name, team.points, team.group_id]
     results = run_sql(sql, values)
     # pdb.set_trace()
     id = results[0]['id']
@@ -22,7 +20,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        team = Team(result['name'], result['points'], result['id'])
+        team = Team(result['name'], result['points'], result['group_id'], result['id'])
     return team
 
 
@@ -32,7 +30,18 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        team = Team(row['name'], row['points'], row['id'])
+        team = Team(row['name'], row['points'], row['group_id'], row['id'])
+        teams.append(team)
+    return teams
+
+
+def list_all():
+    teams = []
+    sql = 'SELECT * FROM teams ORDER BY name ASC'
+    results = run_sql(sql)
+
+    for row in results:
+        team = Team(row['name'], row['points'], row['group_id'], row['id'])
         teams.append(team)
     return teams
 
@@ -40,11 +49,12 @@ def select_all():
 def sort_teams_rank(group):
     teams = []
     # pdb.set_trace()
-    sql = 'SELECT * FROM teams  ORDER BY points DESC'
-    results = run_sql(sql)
+    sql = 'SELECT * FROM teams WHERE group_id = %s ORDER BY points DESC'
+    values = [group]
+    results = run_sql(sql, values)
 
     for row in results:
-        team = Team(row['name'], row['points'], row['id'])
+        team = Team(row['name'], row['points'], row['group_id'], row['id'])
         teams.append(team)
     return teams
 
@@ -58,7 +68,7 @@ def delete_all():
 
 def games(team):
     games = []
-    sql_1 = 'SELECT * FROM group_1_games WHERE %s in (team_1_id, team_2_id)'
+    sql_1 = 'SELECT * FROM games WHERE %s in (team_1_id, team_2_id)'
     values = [team.id]
 
     results_1 = run_sql(sql_1, values)

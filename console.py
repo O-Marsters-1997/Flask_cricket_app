@@ -1,55 +1,62 @@
 import pdb
+from models import game
 from models.team import Team
 from models.game import Game
 
 import repositories.team_repository as team_repository
 
 
-import repositories.group_1_game_repository as group_1_game_repository
+import repositories.game_repository as game_repository
 
 
 
-# group_1_game_repository.delete_all()
-
-
+# game_repository.delete_all()
 team_repository.delete_all()
 
 
 #User has no control of which teams are in the league, they are pre-defined here instead!
 
-team1 = Team('Afghanistan',0)
+team1 = Team('Afghanistan',0, 2)
 team_repository.save(team1)
-team2 = Team('Australia', 3)
+team2 = Team('Australia', 3, 1)
 team_repository.save(team2)
-team3 = Team('Bangladesh', 4)
+team3 = Team('Bangladesh', 4, 2)
 team_repository.save(team3)
-team4 = Team('England', 4)
+team4 = Team('England', 4, 1)
 team_repository.save(team4)
-team5 = Team('India', 8)
+team5 = Team('India', 8, 2)
 team_repository.save(team5)
-team6 = Team('Namibia', 0)
+team6 = Team('Namibia', 0, 2)
 team_repository.save(team6)
 
-team7 = Team('New Zealand', 4)
+team7 = Team('New Zealand', 4, 2)
 team_repository.save(team7)
-team8 = Team('Pakistan', 5)
+team8 = Team('Pakistan', 5, 2)
 team_repository.save(team8)
-team9 = Team('Scotland',11)
+team9 = Team('Scotland',11, 2)
 team_repository.save(team9)
-team10 = Team('South Africa', 3)
+team10 = Team('South Africa', 3, 1)
 team_repository.save(team10)
-team11 = Team('Sri Lanka', 1)
+team11 = Team('Sri Lanka', 1, 1)
 team_repository.save(team11)
-team12 = Team('West Indies', 14)
+team12 = Team('West Indies', 14, 1)
 team_repository.save(team12)
+
+
 
 
 # print(team_repository.select_all())
 # print(group_2_team_repository.select_all())
 # print(team_repository.select(team5_group1.id).name)
 
-# game_1_group_1 = Game(team1_group1, team2_group1, 196, 110, '1970-01-01 00:00:00.00')
-# group_1_game_repository.save(game_1_group_1)
+game_1 = Game(team1, team2, 196, 110, '1970-01-01')
+game_repository.save(game_1)
+game_2 = Game(team1, team2, 186, 110, '1970-01-01')
+game_repository.save(game_2)
+
+# game_repository.select(game_1.id)
+
+
 # game_2_group_1 = Game(team3_group1, team4_group1, 160, 140, '1980-01-01 00:00:00.00')
 # group_1_game_repository.save(game_2_group_1)
 # game_3_group_1 = Game(team5_group1, team6_group1, 85, 86, '1945-01-01 00:00:00.00')

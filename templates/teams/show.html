@@ -1,2 +1,8 @@
 {% extends "base.html"%}
 
+{% block team %}
+
+<h1>{{team.name}}</h1>
+<img src="/static/images/{{team.name}}.jpg" alt="{{team.name}} flag" class = "flag-icon">
+
+{% endblock %}

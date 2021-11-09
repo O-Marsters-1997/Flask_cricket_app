@@ -9,7 +9,7 @@ import repositories.team_repository as team_repository
 
 # Create game
 def save(game):
-    sql = 'INSERT INTO group_1_games (team_1_id, team_2_id, team_1_runs, team_2_runs, game_date) VALUES (%s, %s, %s, %s, %s) RETURNING *'
+    sql = 'INSERT INTO games (team_1_id, team_2_id, team_1_runs, team_2_runs, game_date) VALUES (%s, %s, %s, %s, %s) RETURNING *'
     values = [game.team_1.id, game.team_2.id,
               game.team_1_runs, game.team_2_runs, game.game_date]
 
@@ -21,20 +21,23 @@ def save(game):
 
 #Select game
 def select(id):
-    sql = 'SELECT * FROM group_1_games WHERE id = %s'
+    sql = 'SELECT * FROM games WHERE id = %s'
+    # pdb.set_trace()
     values = [id]
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        game = Game(result['team_1'], result['team_2'],
-                    result['team_1_runs'], result['team_2_runs'])
+        team_1 = team_repository.select(result['team_1_id'])
+        team_2 = team_repository.select(result['team_2_id'])
+        game = Game(team_1, team_2,
+                    result['team_1_runs'], result['team_2_runs'], result['game_date'])
     return game
 
 
 #Select all games
 def select_all():
     games = []
-    sql = 'SELECT * FROM group_1_games'
+    sql = 'SELECT * FROM games'
 
     results = run_sql(sql)
     for row in results:
@@ -47,7 +50,7 @@ def select_all():
 #Sort games
 def sort_games_date():
     sorted_games = []
-    sql = 'SELECT * FROM group_1_games ORDER BY game_date ASC'
+    sql = 'SELECT * FROM games ORDER BY game_date ASC'
 
     results = run_sql(sql)
     for row in results:
@@ -60,7 +63,7 @@ def sort_games_date():
 
 #edit games
 def update(game):
-    sql = 'UPDATE group_1_games SET (team_1_id, team_2_id, team_1_runs, team_2_runs, game_date) = (%s, %s, %s, %s, %s) WHERE id = %s'
+    sql = 'UPDATE games SET (team_1_id, team_2_id, team_1_runs, team_2_runs, game_date) = (%s, %s, %s, %s, %s) WHERE id = %s'
     values = [game.team_1.id, game.team_2.id, game.team_1_runs, game.team_2_runs, game.game_date, game.id]
     run_sql(sql, values)
 

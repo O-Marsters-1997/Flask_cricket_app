@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+
+{% block content %}
+<div class="game-card">
+    <h3>{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
+    <div class="game-card-flag-wrapper">
+        <img src="/static/images/{{game.team_1.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
+        <img src="/static/images/{{game.team_2.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
+    </div>
+    <div class="score-wrapper">
+        <p>{{game.team_1_runs}} runs vs {{game.team_2_runs}} runs</p>
+        {% if game.team_1_runs > game.team_2_runs %}
+        <em>{{game.team_1.name}} wins!</em>
+        {% elif game.team_2_runs > game.team_1_runs %}
+        <em>{{game.team_2.name}} wins!</em>
+        {% endif %}
+    </div>
+    <a href="/game/{{game.id}}/edit"><button>
+        Edit
+    </button></a>
+</div>
+{% endblock %}

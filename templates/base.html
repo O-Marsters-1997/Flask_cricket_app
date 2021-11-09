@@ -22,10 +22,10 @@
         <nav class="content-nav">
             <div class="content-nav-wrapper">
                 <ul class="content-nav-list">
-                    <li class="content-nav-item"><a href="">Teams</a></li>
-                    <li class="content-nav-item"><a href="">Matches</a></li>
-                    <li class="content-nav-item"><a href="">New Match</a></li>
-                    <li class="content-nav-item"><a href="">League Table</a></li>
+                    <li class="content-nav-item"><a href="{{ url_for('teams.teams') }}">Teams</a></li>
+                    <li class="content-nav-item"><a href="{{ url_for('games.games') }}">Matches</a></li>
+                    <li class="content-nav-item"><a href="{{ url_for('games.new_game') }}">New Match</a></li>
+                    <li class="content-nav-item"><a href="{{ url_for('table.show_table') }}">League Table</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,7 +37,13 @@
             {% endblock %}
             {% block table %}
             {% endblock %}
+            {% block team %}
+            {% endblock %}
             {% block all_teams %}
+            {% endblock %}
+            {% block new_team_form %}
+            {% endblock %}
+            {% block hello %}
             {% endblock %}
         </main>
             

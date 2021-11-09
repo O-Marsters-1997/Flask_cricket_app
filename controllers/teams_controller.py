@@ -3,9 +3,8 @@ from flask import Blueprint
 
 from models.team import Team
 
-import repositories.teams_repository as teams_repository
 import repositories.team_repository as team_repository
-import repositories.group_1_game_repository as group_1_game_repository
+import repositories.game_repository as game_repository
 
 teams_blueprint = Blueprint("teams", __name__)
 
@@ -14,10 +13,10 @@ teams_blueprint = Blueprint("teams", __name__)
 
 @teams_blueprint.route('/teams')
 def teams():
-    teams = teams_repository.list_all()
+    teams = team_repository.list_all()
     return render_template('teams/index.html', teams=teams)
 
 @teams_blueprint.route('/teams/<id>', methods = ['GET'])
 def show(id):
-    team = teams_repository.select(id)
+    team = team_repository.select(id)
     return render_template('teams/show.html', team=team)

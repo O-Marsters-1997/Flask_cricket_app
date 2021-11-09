@@ -90,6 +90,7 @@ HEADER SECTION
 .main {
     border: 2px solid orange;
     grid-area: main;
+    min-height: 80vh;;
 }
 
 /* Footer */
