@@ -9,7 +9,7 @@ import repositories.group_1_game_repository as group_1_game_repository
 
 
 
-group_1_game_repository.delete_all()
+# group_1_game_repository.delete_all()
 
 
 team_repository.delete_all()

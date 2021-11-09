@@ -66,12 +66,12 @@ def update(game):
 
 #Delete game
 def delete(id):
-    sql = 'DELETE FROM group_1_games WHERE id = %s'
+    sql = 'DELETE FROM games WHERE id = %s'
     values = [id]
     run_sql(sql, values)    
 
 
 # Delete all games
 def delete_all():
-    sql = 'DELETE FROM group_1_games'
+    sql = 'DELETE FROM games'
     run_sql(sql)
