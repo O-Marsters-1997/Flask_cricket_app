@@ -54,6 +54,10 @@ HEADER SECTION
     margin: 0;
 }
 
+:focus {
+    outline: none
+}
+
 /*//////////////////*/
 /*General Layout*/
 
@@ -133,9 +137,11 @@ HEADER SECTION
     text-transform: small-caps;
     cursor: pointer;
     text-transform: lowercase;
-    padding-bottom: 0.175em;
+    padding-bottom: 0.175em;            
 }
-.header-list-item a:hover, .header-list-item a:active {
+
+/*Focus link style for pressing tab and accessibility issues*/
+.header-list-item a:hover, .header-list-item a:focus, .content-nav-item a:focus {
     border-bottom: 2px solid var(--nav-text);
 }
 
@@ -166,7 +172,19 @@ HEADER SECTION
     height: 100%;
     width: 25%;
     text-align: center;
-    padding-top: 1.25em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 1.25em; */
+}
+
+.content-nav-item a {
+    display: block;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: 500;
+    /* height: 100%; */
 }
 
 .content-nav-item:hover {
@@ -174,19 +192,12 @@ HEADER SECTION
 }
 
 
-.content-nav-item a {
-    color: var(--nav-text);
-    text-decoration: none;
-    font-weight: 500;
-    height: 100%;
-    vertical-align: center;
-    
-}
+
 
 
 /*Footer*/
 
-.footer {
+.footer {   
     background-color: var(--background-secondary);
     color: var(--nav-text); 
 }
