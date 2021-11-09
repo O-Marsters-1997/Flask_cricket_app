@@ -4,7 +4,7 @@ from models.team import Team
 
 class TestTeam(unittest.TestCase):
     def setUp(self):
-        self.team = Team("England", 4)
+        self.team = Team("England", 4, 2)
 
     # Attribute Tests
 

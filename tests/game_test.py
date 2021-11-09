@@ -7,8 +7,8 @@ import repositories.group_2_game_repository as group_2_game_repository
 
 class TestGame(unittest.TestCase):
     def setUp(self):
-        self.team_1 = Team("England", 4)
-        self.team_2 = Team("Australia", 2)
+        self.team_1 = Team("England", 4, 4)
+        self.team_2 = Team("Australia", 2, 2)
         self.game = Game(self.team_1, self.team_2, 58, 56, "2021-11-08 00:00:00.00")
 
     # @unittest.skip("Delete this line to run the test")

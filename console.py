@@ -18,7 +18,7 @@ group_2_team_repository.delete_all()
 #User has no control of which teams are in the league, they are pre-defined here instead!
 
 # #Group1
-team1_group1 = Team('Australia',12)
+team1_group1 = Team('Australia',0)
 group_1_team_repository.save(team1_group1)
 team2_group1 = Team('Bangladesh', 3)
 group_1_team_repository.save(team2_group1)

@@ -1,0 +1,23 @@
+from flask import Flask, render_template, request, redirect
+from flask import Blueprint
+
+from models.team import Team
+
+import repositories.all_teams_repository as all_teams_repository
+import repositories.group_1_team_repository as group_1_team_repository
+import repositories.group_1_game_repository as group_1_game_repository
+
+teams_blueprint = Blueprint("teams", __name__)
+
+
+# All Teams
+
+@teams_blueprint.route('/teams')
+def teams():
+    teams = all_teams_repository.list_all()
+    return render_template('teams/index.html', teams=teams)
+
+@teams_blueprint.route('/teams/<id>', methods = ['GET'])
+def show(id):
+    team = all_teams_repository.select(id)
+    return render_template('teams/show.html', team=team)

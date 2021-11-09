@@ -1,0 +1,12 @@
+{% extends "base.html"%}
+
+{% block all_teams %}
+
+
+<ul>
+{% for team in teams %}
+<li> <img src="/static/images/{{team.name}}.jpg" class = "flag-icon"> <a href="/teams/{{team.id}}">{{team.name}}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
