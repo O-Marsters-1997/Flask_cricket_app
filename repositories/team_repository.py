@@ -8,7 +8,7 @@ from models.game import Game
 
 
 def save(team):
-    sql = "INSERT INTO group_1_teams (name, points) VALUES (%s, %s) RETURNING *"
+    sql = "INSERT INTO teams (name, points) VALUES (%s, %s) RETURNING *"
     values = [team.name, team.points]
     results = run_sql(sql, values)
     # pdb.set_trace()
@@ -17,7 +17,7 @@ def save(team):
     return team
 
 def select(id):
-    sql = 'SELECT * FROM group_1_teams WHERE id = %s'
+    sql = 'SELECT * FROM teams WHERE id = %s'
     values = [id]
     result = run_sql(sql, values)[0]
 
@@ -28,7 +28,7 @@ def select(id):
 
 def select_all():
     teams = []
-    sql = 'SELECT * FROM group_1_teams'
+    sql = 'SELECT * FROM teams'
     results = run_sql(sql)
 
     for row in results:
@@ -40,7 +40,7 @@ def select_all():
 def sort_teams_rank(group):
     teams = []
     # pdb.set_trace()
-    sql = 'SELECT * FROM group_1_teams  ORDER BY points DESC'
+    sql = 'SELECT * FROM teams  ORDER BY points DESC'
     results = run_sql(sql)
 
     for row in results:
@@ -52,7 +52,7 @@ def sort_teams_rank(group):
 
 #Delete all
 def delete_all():
-    sql = 'DELETE FROM group_1_teams'
+    sql = 'DELETE FROM teams'
     run_sql(sql)
 
 

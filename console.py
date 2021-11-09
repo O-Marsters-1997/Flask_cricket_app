@@ -2,53 +2,51 @@ import pdb
 from models.team import Team
 from models.game import Game
 
-import repositories.group_1_team_repository as group_1_team_repository
-import repositories.group_2_team_repository as group_2_team_repository
+import repositories.team_repository as team_repository
+
 
 import repositories.group_1_game_repository as group_1_game_repository
-import repositories.group_2_game_repository as group_2_game_repository
+
 
 
 group_1_game_repository.delete_all()
-group_2_game_repository.delete_all()
 
-group_1_team_repository.delete_all()
-group_2_team_repository.delete_all()
+
+team_repository.delete_all()
+
 
 #User has no control of which teams are in the league, they are pre-defined here instead!
 
-# #Group1
-team1_group1 = Team('Australia',0)
-group_1_team_repository.save(team1_group1)
-team2_group1 = Team('Bangladesh', 3)
-group_1_team_repository.save(team2_group1)
-team3_group1 = Team('England', 4)
-group_1_team_repository.save(team3_group1)
-team4_group1 = Team('South Africa', 4)
-group_1_team_repository.save(team4_group1)
-team5_group1 = Team('Sri Lanka', 8)
-group_1_team_repository.save(team5_group1)
-team6_group1 = Team('West Indies', 0)
-group_1_team_repository.save(team6_group1)
+team1 = Team('Afghanistan',0)
+team_repository.save(team1)
+team2 = Team('Australia', 3)
+team_repository.save(team2)
+team3 = Team('Bangladesh', 4)
+team_repository.save(team3)
+team4 = Team('England', 4)
+team_repository.save(team4)
+team5 = Team('India', 8)
+team_repository.save(team5)
+team6 = Team('Namibia', 0)
+team_repository.save(team6)
 
-#Group2
-team1_group2 = Team('Afghanistan', 4)
-group_2_team_repository.save(team1_group2)
-team2_group2 = Team('India', 5)
-group_2_team_repository.save(team2_group2)
-team3_group2 = Team('Namibia',11)
-group_2_team_repository.save(team3_group2)
-team4_group2 = Team('New Zealand', 3)
-group_2_team_repository.save(team4_group2)
-team5_group2 = Team('Pakistan', 1)
-group_2_team_repository.save(team5_group2)
-team6_group2 = Team('Scotland', 14)
-group_2_team_repository.save(team6_group2)
+team7 = Team('New Zealand', 4)
+team_repository.save(team7)
+team8 = Team('Pakistan', 5)
+team_repository.save(team8)
+team9 = Team('Scotland',11)
+team_repository.save(team9)
+team10 = Team('South Africa', 3)
+team_repository.save(team10)
+team11 = Team('Sri Lanka', 1)
+team_repository.save(team11)
+team12 = Team('West Indies', 14)
+team_repository.save(team12)
 
 
-# print(group_1_team_repository.select_all())
+# print(team_repository.select_all())
 # print(group_2_team_repository.select_all())
-# print(group_1_team_repository.select(team5_group1.id).name)
+# print(team_repository.select(team5_group1.id).name)
 
 # game_1_group_1 = Game(team1_group1, team2_group1, 196, 110, '1970-01-01 00:00:00.00')
 # group_1_game_repository.save(game_1_group_1)
@@ -71,7 +69,7 @@ group_2_team_repository.save(team6_group2)
 # group_1_game_repository.update(game_5_group_1)
 
 
-# games = group_1_team_repository.games(team1_group1)
+# games = team_repository.games(team1_group1)
 # for game in games:
 #     print(game.__dict__)
 
@@ -90,7 +88,7 @@ group_2_team_repository.save(team6_group2)
 # for game in sorted_games_1:
 #     print(game.__dict__)
 
-# sorted_teams_1 = group_1_team_repository.sort_teams_rank()
+# sorted_teams_1 = team_repository.sort_teams_rank()
 # for team in sorted_teams_1:
 #     print(team.__dict__)
 

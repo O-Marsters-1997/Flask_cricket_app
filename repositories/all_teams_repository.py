@@ -5,7 +5,7 @@ from models.team import Team
 
 def list_all():
     teams = []
-    sql = 'SELECT * FROM group_1_teams UNION SELECT * FROM group_2_teams  ORDER BY name ASC'
+    sql = 'SELECT * FROM teams UNION SELECT * FROM group_2_teams  ORDER BY name ASC'
     results = run_sql(sql)
 
     for row in results:
@@ -15,7 +15,7 @@ def list_all():
 
 
 def select(id):
-    sql = 'SELECT * FROM group_1_teams UNION SELECT * FROM group_2_teams WHERE id = %s'
+    sql = 'SELECT * FROM teams UNION SELECT * FROM group_2_teams WHERE id = %s'
     values = [id]
     result = run_sql(sql, values)[0]
 
