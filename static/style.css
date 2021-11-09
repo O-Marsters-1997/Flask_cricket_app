@@ -201,3 +201,8 @@ HEADER SECTION
     background-color: var(--background-secondary);
     color: var(--nav-text); 
 }
+
+.flag-icon { 
+    width: 50px;
+    height: auto;
+}

@@ -39,6 +39,7 @@ def select_all():
 
 def sort_teams_rank():
     teams = []
+    # pdb.set_trace()
     sql = 'SELECT * FROM group_1_teams ORDER BY points DESC'
     results = run_sql(sql)
 

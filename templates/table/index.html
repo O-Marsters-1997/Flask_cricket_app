@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block table %}
+
+
+
+    <table class="league-table">
+        <tr>
+            <th></th>
+            <th>Country name</th>
+            <th>Points </th>
+        </tr>
+            {% for team in teams_1 %}
+        <tr>
+            <td><img src="/static/images/{{team.name}}.jpg" class = flag-icon></td>
+            <td>{{ team.name }}</td>
+            <td>{{team.points}}</td>
+        </tr>
+            {% endfor %}
+    </table>
+
+    <table class="league-table">
+        <tr>
+            <th></th>
+            <th>Country name</th>
+            <th>Points </th>
+        </tr>
+            {% for team in teams_2 %}
+        <tr>
+            <td><img src="/static/images/{{team.name}}.jpg" class = flag-icon></td>
+            <td>{{ team.name }}</td>
+            <td>{{team.points}}</td>
+        </tr>
+            {% endfor %}
+    </table>
+
+
+{% endblock %}
