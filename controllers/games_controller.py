@@ -16,8 +16,6 @@ def games():
     return render_template('games/index.html', games=games)
 
 #Create new Game
-# NEW
-# GET '/games/new'
 @games_blueprint.route("/games/new", methods=['GET'])
 def new_game():
     teams = team_repository.select_all()
@@ -36,7 +34,6 @@ def create_game():
     game = Game(team_1, team_2, team_1_runs, team_2_runs, game_date)
 
     # pdb.set_trace()
-
     if team_1_runs > team_2_runs:
         team_1.points +=2
         # pdb.set_trace()
@@ -55,16 +52,21 @@ def create_game():
 
 
 # SHOW
-# GET '/books/<id>'
 @games_blueprint.route("/games/<id>", methods=['GET'])
 def show_game(id):
     game = game_repository.select(id)
     return render_template('games/show.html', game=game)
 
 # EDIT
-# GET '/books/<id>/edit'
 @games_blueprint.route("/games/<id>/edit", methods=['GET'])
 def edit_game(id):
     game = game_repository.select(id)
     teams = team_repository.select_all()
     return render_template('games/edit.html', teams=teams, game=game)
+
+
+#DELETE
+@games_blueprint.route("/games/<id>/delete", methods=['POST'])
+def delete_book(id):
+    game_repository.delete(id)
+    return redirect('/games')

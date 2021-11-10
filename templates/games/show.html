@@ -3,6 +3,7 @@
 {% block content %}
 <div class="game-card">
     <h3>{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
+    <h4>{{game.game_date}}</h4>
     <div class="game-card-flag-wrapper">
         <img src="/static/images/{{game.team_1.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
         <img src="/static/images/{{game.team_2.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
