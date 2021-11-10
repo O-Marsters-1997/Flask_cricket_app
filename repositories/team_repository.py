@@ -66,6 +66,11 @@ def delete_all():
     run_sql(sql)
 
 
+def update(team):
+    sql = "UPDATE teams SET (name, points, group_id) = (%s, %s, %s) where id = %s"
+    values = [team.name, team.points, team.group_id, team.id]
+    run_sql(sql, values)
+
 def games(team):
     games = []
     sql_1 = 'SELECT * FROM games WHERE %s in (team_1_id, team_2_id)'

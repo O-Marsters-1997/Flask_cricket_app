@@ -1,5 +1,7 @@
+import pdb
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from db.run_sql import run_sql
 from models.game import Game
 import repositories.game_repository as game_repository
 import repositories.team_repository as team_repository
@@ -28,11 +30,26 @@ def new_game():
 def create_game():
     team_1 = team_repository.select(request.form['team_1_id'])
     team_2 = team_repository.select(request.form['team_2_id'])
-    team_1_runs = request.form['team_1_runs']
-    team_2_runs = request.form['team_2_runs']
+    team_1_runs = int(request.form['team_1_runs'])
+    team_2_runs = int(request.form['team_2_runs'])
     game_date = request.form['game_date']
     game = Game(team_1, team_2, team_1_runs, team_2_runs, game_date)
 
+    # pdb.set_trace()
+
+    if team_1_runs > team_2_runs:
+        team_1.points +=2
+        # pdb.set_trace()
+    elif team_2_runs > team_1_runs:
+        team_2.points +=2
+    else:
+        team_1.points +=1
+        team_2.points +=1
+   
+
+    team_repository.update(team_1)
+    team_repository.update(team_2)
+   
     game_repository.save(game)
     return redirect('/games')
 
