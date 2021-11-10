@@ -57,16 +57,34 @@ def show_game(id):
     game = game_repository.select(id)
     return render_template('games/show.html', game=game)
 
-# EDIT
+# EDIT GET
 @games_blueprint.route("/games/<id>/edit", methods=['GET'])
 def edit_game(id):
     game = game_repository.select(id)
     teams = team_repository.select_all()
     return render_template('games/edit.html', teams=teams, game=game)
 
+# EDIT POST
+@games_blueprint.route("/games/<id>", methods=['POST'])
+def update_game(id):
+    team_1 = team_repository.select(request.form['team_1_id'])
+    team_2 = team_repository.select(request.form['team_2_id'])
+    team_1_runs = request.form['team_1_runs']
+    team_2_runs = request.form['team_2_runs']
+    game_date = request.form['game_date']
+
+    game = Game(team_1, team_2, team_1_runs, team_2_runs, game_date, id)
+    game_repository.update(game)
+    return redirect('/games')
 
 #DELETE
 @games_blueprint.route("/games/<id>/delete", methods=['POST'])
-def delete_book(id):
+def delete_game(id):
+    game = game_repository.select(id)
+    team_1 = game.team_1
+    team_2 = game.team_2
+    game_repository.lower_points_deleted_game(game, team_1, team_2)
+    team_repository.update(team_1)
+    team_repository.update(team_2)
     game_repository.delete(id)
     return redirect('/games')

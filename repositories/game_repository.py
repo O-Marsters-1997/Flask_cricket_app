@@ -30,7 +30,7 @@ def select(id):
         team_1 = team_repository.select(result['team_1_id'])
         team_2 = team_repository.select(result['team_2_id'])
         game = Game(team_1, team_2,
-                    result['team_1_runs'], result['team_2_runs'], result['game_date'])
+                    result['team_1_runs'], result['team_2_runs'], result['game_date'], result['id'])
     return game
 
 
@@ -67,11 +67,32 @@ def update(game):
     values = [game.team_1.id, game.team_2.id, game.team_1_runs, game.team_2_runs, game.game_date, game.id]
     run_sql(sql, values)
 
+
 #Delete game
 def delete(id):
     sql = 'DELETE FROM games WHERE id = %s'
     values = [id]
-    run_sql(sql, values)    
+    run_sql(sql, values)
+
+
+def lower_points_deleted_game(game, team_1, team_2):
+    sql_1 = 'SELECT team_1_runs FROM  games WHERE id = %s'
+    values1 = [game.id]
+    team_1_runs = run_sql(sql_1, values1)[0]
+    sql_2 = 'SELECT team_2_runs FROM  games WHERE id = %s'
+    values2 = [game.id]
+    team_2_runs = run_sql(sql_2, values2)[0]
+    print(team_1_runs)
+    print(team_2_runs)
+    if team_1_runs > team_2_runs:
+        team_1.points -=2
+    elif team_2_runs > team_1_runs:
+        team_2.points -=2
+    else:
+        team_1.points -= 1
+        team_2.points -= 1
+
+    
 
 
 # Delete all games

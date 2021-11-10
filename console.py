@@ -49,13 +49,17 @@ team_repository.save(team12)
 # print(group_2_team_repository.select_all())
 # print(team_repository.select(team5_group1.id).name)
 
-game_1 = Game(team1, team2, 196, 110, '1970-01-01')
+game_1 = Game(team1, team2, 196, 1900, '1970-01-01')
 game_repository.save(game_1)
 game_2 = Game(team1, team2, 186, 110, '1970-01-01')
 game_repository.save(game_2)
 
 # game_repository.select(game_1.id)
-
+# print(game_1.team_1.points)
+# print(game_1.team_2.points)
+# game_repository.lower_points_deleted_game(game_1, game_1.team_1, game_1.team_2)
+# print(game_1.team_1.points)
+# print(game_1.team_2.points)
 
 # game_2_group_1 = Game(team3_group1, team4_group1, 160, 140, '1980-01-01 00:00:00.00')
 # group_1_game_repository.save(game_2_group_1)
