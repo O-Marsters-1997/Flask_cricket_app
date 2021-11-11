@@ -59,7 +59,11 @@ def sort_teams_rank(group):
         teams.append(team)
     return teams
 
-#No delete (does not make sense)
+
+def delete(id):
+    sql = "DELETE  FROM teams WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 #Delete all
 def delete_all():

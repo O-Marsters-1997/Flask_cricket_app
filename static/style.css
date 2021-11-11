@@ -198,6 +198,13 @@ HEADER SECTION
 
 }
 
+/* Teams *List*/
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
 /* League table*/
 
 table * {

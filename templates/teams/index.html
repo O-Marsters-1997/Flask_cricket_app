@@ -2,11 +2,20 @@
 
 {% block all_teams %}
 
-
-<ul>
+<div class="team-container">
 {% for team in teams %}
-<li> <img src="/static/images/{{team.name}}.jpg" class = "flag-icon"> <a href="/teams/{{team.id}}">{{team.name}}</a></li>
+    <div class="country-wrapper">
+        <img src="/static/images/{{team.name}}.jpg" class = "flag-icon"> 
+        <a href="/teams/{{team.id}}">{{team.name}}</a>
+            <form action="/teams/{{team.id}}/delete" method="post">
+                <button class = "delete">
+                    Delete
+                </button>
+            </form>
+    </div>
 {% endfor %}
-</ul>
-
+</div>
+<form action="/teams/new" method="get">
+    <input type="submit" name = "submit-button" value= "Add team" class = "submit-button"> 
+</form>
 {% endblock %}

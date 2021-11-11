@@ -10,7 +10,7 @@ import repositories.game_repository as game_repository
 
 
 
-# game_repository.delete_all()
+game_repository.delete_all()
 team_repository.delete_all()
 
 
@@ -33,7 +33,7 @@ team7 = Team('New Zealand', 4, 2)
 team_repository.save(team7)
 team8 = Team('Pakistan', 5, 2)
 team_repository.save(team8)
-team9 = Team('Scotland',11, 2)
+team9 = Team('Ireland',0, 2)
 team_repository.save(team9)
 team10 = Team('South Africa', 3, 1)
 team_repository.save(team10)
