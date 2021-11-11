@@ -4,7 +4,10 @@
 
 <h1>{{team.name}}</h1>
 <img src="/static/images/{{team.name}}.jpg" alt="{{team.name}} flag" class = "flag-icon">
-<p>To sew how {{team.name}} have done in this tournament please click on this link</p>
-<a href="/team-games/{{team.id}}"><button>Click here</button></a>
+<p>To see or change how {{team.name}} have done in this tournament please click on the links below!</p>
+<div class="team-button-container">
+    <a href="/team-games/{{team.id}}"><button>{{team.name}} record</button></a>
+    <a href="/teams/{{team.id}}/edit"><button>Edit {{team.name}}</button></a>
+</div>     
 
 {% endblock %}

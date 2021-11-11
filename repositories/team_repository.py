@@ -83,8 +83,9 @@ def games(team):
 
     results = run_sql(sql, values)
     for row in results:
-        team_1 = select(team.id)
-        game = Game(row['team_1_id'], 'team_2_id',  row['team_1_runs'],
+        team_1 = select(row['team_1_id'])
+        team_2 = select(row['team_2_id'])
+        game = Game(team_1, team_2,  row['team_1_runs'],
                     row['team_2_runs'], row['game_date'], row['id'])
         games.append(game)
 

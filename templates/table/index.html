@@ -3,7 +3,7 @@
 {% block table %}
 
 
-
+    <h3 class="group-league-heading">Group A:</h3>
     <table class="league-table">
         <thead>
             <tr>
@@ -17,13 +17,14 @@
             <tr>
                 <td><img src="/static/images/{{team.name}}.jpg" class = flag-icon></td>
                 <td>{{positions[loop.index0]}}</td>
-                <td>{{ team.name }}</td>
+                <td><a href="/teams/{{team.id}}">{{ team.name }}</a></td>
                 <td>{{team.points}}</td>
             </tr>
             {% endfor %}
     </table>
 
-    <table class="league-table">
+    <h3 class="group-league-heading">Group B:</h3>
+    <table class="league-table group-2">
         <thead>
             <tr>
                 <th></th>
@@ -36,11 +37,12 @@
         <tr>
             <td><img src="/static/images/{{team.name}}.jpg" class = flag-icon></td>
             <td>{{positions[loop.index0]}}</td>
-            <td>{{ team.name }}</td>
+            <td> <a href="/teams/{{team.id}}">{{ team.name }}</a></td>
             <td>{{team.points}}</td>
         </tr>
             {% endfor %}
     </table>
+    <p class = "margin-buffer">invisible text</p>
 
 
 {% endblock %}

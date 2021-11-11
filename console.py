@@ -18,7 +18,7 @@ team_repository.delete_all()
 
 team1 = Team('Afghanistan',0, 2)
 team_repository.save(team1)
-team2 = Team('Australia', 3, 1)
+team2 = Team('Astralia', 3, 1)
 team_repository.save(team2)
 team3 = Team('Bangladesh', 4, 1)
 team_repository.save(team3)

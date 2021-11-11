@@ -1,3 +1,4 @@
+import pdb
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 
@@ -37,6 +38,28 @@ def create_team():
     group_id = int(request.form['group_id'])
     team = Team(name, points, group_id)
     team_repository.save(team)
+    return redirect('/teams')
+
+
+# EDIT GET
+@teams_blueprint.route("/teams/<id>/edit", methods=['GET'])
+def edit_game(id):
+    team = team_repository.select(id)
+    return render_template('teams/edit.html', team=team)
+
+# EDIT POST
+@teams_blueprint.route("/teams/<id>", methods=['POST'])
+def update_game(id):
+
+    team_name = request.form['team_name']
+    
+    team_points = request.form['team_points']
+    team_group_id = request.form['group_id']
+    # pdb.set_trace()
+
+
+    team = Team(team_name, team_points, team_group_id, id)
+    team_repository.update(team)
     return redirect('/teams')
 
 
