@@ -10,4 +10,5 @@ table_blueprint = Blueprint("table", __name__)
 def show_table():
     teams_1 = team_repository.sort_teams_rank(1)
     teams_2 = team_repository.sort_teams_rank(2)
-    return render_template('table/index.html', teams_1=teams_1, teams_2=teams_2)
+    positions = [1,2,3,4,5,6]
+    return render_template('table/index.html', teams_1=teams_1, teams_2=teams_2, positions=positions)

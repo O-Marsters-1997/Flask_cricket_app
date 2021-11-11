@@ -15,14 +15,11 @@ GENERAL LAYOUT
 ...Sidebar
 ...Main Content
 ...Footer
-
+Logo
 HEADER SECTION
 ... Header Logo
 ... Header Navigation
 */
-
-
-
 
 
 
@@ -35,13 +32,16 @@ HEADER SECTION
 
     --background-primary: rgba(252, 252, 252);
     --background-secondary: rgba(68,37,125);
+    --league-grey-primary: rgb(78, 66, 99);
+    --league-grey-modifier: rgb(237, 237, 241);
     --blank: rgba(0, 0, 0, 0)
 
     /*Text Colours*/
-
-
     --text-primary: rgba(0,0,0);
     --nav-text: rgba(252, 252, 252);
+    --grey-table-heading: rgb(26, 6, 43);
+    --grey-table-primary-text: rgb(75, 72, 72);
+    
 
     /*Typography*/
 
@@ -83,20 +83,17 @@ HEADER SECTION
 
 /* Content nav */
 .content-nav {
-    border: 2px solid blue;
     grid-area: nav;
 }
 
 /* Main */
 .main {
-    border: 2px solid orange;
     grid-area: main;
-    min-height: 80vh;;
+    min-height: 80vh;
 }
 
 /* Footer */
 .footer {
-    border: 2px solid purple;
     grid-area: footer;
 }
 
@@ -105,9 +102,9 @@ HEADER SECTION
 /* Header Logo */
 
 .logo {
-    height: 50px;
+    height: 8.75vh;
     width: auto;
-    margin: 0 auto 0 1.5em;
+    margin: 0.5em auto 0 1.5em;
     filter: invert(100%) sepia(0%) saturate(24%) hue-rotate(114deg) brightness(108%) contrast(108%);
 }
 
@@ -193,6 +190,60 @@ HEADER SECTION
     background-color: rgba(61,33,112);
 }
 
+/* Main section */
+
+.main {
+    display: grid;
+    
+
+}
+
+/* League table*/
+
+table * {
+    text-align: center;
+}
+
+thead {
+    box-shadow: 0px 7px 10px var(--league-grey-modifier);
+}
+
+thead tr {
+    text-transform: uppercase;
+    padding: 1.5em 0;
+    color: var(--grey-table-heading);
+}
+
+thead tr, tbody tr {
+    height: 2.5em
+}
+
+tbody tr {
+    color: var(--grey-table-primary-text);
+}
+
+tbody tr:nth-of-type(2n) {
+    background-color: var(--league-grey-modifier);
+}
+
+table.league-table {
+    width: min(500px, 70%);
+    margin: 0 auto;
+    box-shadow: 0 2px 5px var(--league-grey-primary);
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+
+
+table.league-table:first-child {
+    margin-top: 4.5em;
+}
+
+table.league-table:nth-child(2) {
+    margin-top: 4.5em;
+    margin-bottom: 3em;
+}
 
 
 
@@ -201,19 +252,33 @@ HEADER SECTION
 
 .footer {   
     background-color: var(--background-secondary);
-    color: var(--nav-text); 
+    color: var(--nav-text);
+    clip-path: polygon(0 0, 100% 45%, 100% 100%, 0 100%);
 }
 
 .flag-icon { 
-    width: 50px;
-    height: auto;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    padding-top: -5px;
+    overflow: hidden;
+}
+
+.footer-text {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 7.5px;
+    position: relative;
 }
 
 /* Miscelleneous */
 
-/* input.invisible:read-only {
+input.invisible:read-only {
   border: 2px solid var(--blank);
   background-color: var(--blank);
   height: 0px;
   width: 0px;
-} */
+}

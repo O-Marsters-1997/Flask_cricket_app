@@ -57,6 +57,14 @@ def show_game(id):
     game = game_repository.select(id)
     return render_template('games/show.html', game=game)
 
+#Show games associated with team
+@games_blueprint.route("/team-games/<id>", methods=['GET'])
+def show_game_for_team(id):
+    team = team_repository.select(id)
+    games = team_repository.games(team)
+
+    return render_template('games/team.html', games = games)
+
 # EDIT GET
 @games_blueprint.route("/games/<id>/edit", methods=['GET'])
 def edit_game(id):

@@ -54,6 +54,9 @@ game_repository.save(game_1)
 game_2 = Game(team1, team2, 186, 110, '1970-01-01')
 game_repository.save(game_2)
 
+
+team_repository.games(team1)
+
 # game_repository.select(game_1.id)
 # print(game_1.team_1.points)
 # print(game_1.team_2.points)

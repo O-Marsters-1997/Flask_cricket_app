@@ -2,6 +2,7 @@ import pdb
 from db.run_sql import run_sql
 
 from models.team import Team
+from models.game import Game
 
 
 
@@ -73,13 +74,16 @@ def update(team):
 
 def games(team):
     games = []
-    sql_1 = 'SELECT * FROM games WHERE %s in (team_1_id, team_2_id)'
+    sql = 'SELECT * FROM games WHERE %s in (team_1_id, team_2_id)'
     values = [team.id]
 
-    results_1 = run_sql(sql_1, values)
-    for row in results_1:
-        game = Game(row['team_1_id'], row['team_2_id'], row['team_1_runs'], row['team_2_runs'], row['game_date'], row['id'])
-        games.append(game) 
+    results = run_sql(sql, values)
+    for row in results:
+        team_1 = select(team.id)
+        game = Game(row['team_1_id'], 'team_2_id',  row['team_1_runs'],
+                    row['team_2_runs'], row['game_date'], row['id'])
+        games.append(game)
 
     return games
 
+    
