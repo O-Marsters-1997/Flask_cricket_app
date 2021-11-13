@@ -2,24 +2,33 @@
 
 {% block content %}
 
-{% for game in games %}
+<div class="game-container">
+    {% for game in games %}
+        <div class="game-grid-item">
+            <div class="game-card">
+                <h3><a href="/games/{{game.id}}">{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
+                <h4>{{game.game_date}}</h4>
+                <div class="game-card-flag-wrapper">
+                    <img src="/static/images/{{game.team_1.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
+                    <img src="/static/images/{{game.team_2.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
+                </div>
+                <div class="score-wrapper">
+                    <p>{{game.team_1_runs}} runs vs {{game.team_2_runs}} runs </p>
+                    {% if game.team_1_runs > game.team_2_runs %}
+                    <em>{{game.team_1.name}} wins!</em>
+                    {% elif game.team_2_runs > game.team_1_runs %}
+                    <em>{{game.team_2.name}} wins!</em>
+                    {% endif %}
+                </div>
+                <form action="/games/{{game.id}}/delete" method="POST">
 
-<div class="game-card">
-    <h3><a href="/games/{{game.id}}">{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
-    <h4>{{game.game_date}}</h4>
-    <div class="game-card-flag-wrapper">
-        <img src="/static/images/{{game.team_1.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
-        <img src="/static/images/{{game.team_2.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
-    </div>
-    <div class="score-wrapper">
-        <p>{{game.team_1_runs}} runs vs {{game.team_2_runs}} runs </p>
-        {% if game.team_1_runs > game.team_2_runs %}
-        <em>{{game.team_1.name}} wins!</em>
-        {% elif game.team_2_runs > game.team_1_runs %}
-        <em>{{game.team_2.name}} wins!</em>
-        {% endif %}
-    </div>
-
-{% endfor %}
+                    <button>
+                        Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
