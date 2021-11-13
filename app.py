@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from livereload import Server
 from controllers.table_controller import table_blueprint
 from controllers.teams_controller import teams_blueprint
 from controllers.games_controller import games_blueprint
@@ -16,4 +17,6 @@ def home():
     return render_template('index.html')
 
 if __name__ == '__main__':
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)
