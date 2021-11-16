@@ -14,12 +14,31 @@ game_repository.delete_all()
 team_repository.delete_all()
 
 
-#User has no control of which teams are in the league, they are pre-defined here instead!
+
 
 team1 = Team('Afghanistan',4, 2)
 team_repository.save(team1)
 team2 = Team('Astralia', 0, 1)
 team_repository.save(team2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#User has no control of which teams are in the league, they are pre-defined here instead!
 team3 = Team('Bangladesh', 0, 1)
 team_repository.save(team3)
 team4 = Team('England', 0, 1)
@@ -45,17 +64,17 @@ team_repository.save(team12)
 
 
 
-# print(team_repository.select_all())
-# print(group_2_team_repository.select_all())
-# print(team_repository.select(team5_group1.id).name)
+# # print(team_repository.select_all())
+# # print(group_2_team_repository.select_all())
+# # print(team_repository.select(team5_group1.id).name)
 
-game_1 = Game(team1, team2, 196, 1900, '1970-01-01')
-game_repository.save(game_1)
-game_2 = Game(team1, team2, 186, 110, '1970-01-01')
-game_repository.save(game_2)
+# game_1 = Game(team1, team2, 196, 1900, '1970-01-01')
+# game_repository.save(game_1)
+# game_2 = Game(team1, team2, 186, 110, '1970-01-01')
+# game_repository.save(game_2)
 
 
-team_repository.games(team1)
+# team_repository.games(team1)
 
 # game_repository.select(game_1.id)
 # print(game_1.team_1.points)
