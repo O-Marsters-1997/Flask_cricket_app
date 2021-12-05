@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from livereload import Server
+# from livereload import Server
 from controllers.table_controller import table_blueprint
 from controllers.teams_controller import teams_blueprint
 from controllers.games_controller import games_blueprint
