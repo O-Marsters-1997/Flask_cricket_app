@@ -1,14 +1,16 @@
+/* Colour Scheme */
+/* Theme*/
 :root {
   /* Colour Scheme */
   /* Theme*/
-  --background-primary: rgba(252, 252, 252);
-  --background-primary-muted: rgb(219, 211, 224);
-  --background-secondary: rgba(68,37,125);
-  --background-secondary-modifier-1: rgba(68,37,125, 0.95);
-  --background-secondary-modifier-2: rgba(68,37,125, 0.90);
-  --background-secondary-modifier-3: rgba(68,37,125, 0.85);
-  --background-secondary-modifier-4: rgba(68,37,125, 0.80);
-  --background-secondary-modifier-5: rgba(68,37,125, 0.75);
+  --background-primary: white;
+  --background-primary-muted: #fcfcfc;
+  --background-secondary: #4a209d;
+  --background-secondary-modifier-1: rgba(68, 37, 125, 0.95);
+  --background-secondary-modifier-2: rgba(68, 37, 125, 0.9);
+  --background-secondary-modifier-3: rgba(68, 37, 125, 0.85);
+  --background-secondary-modifier-4: rgba(68, 37, 125, 0.8);
+  --background-secondary-modifier-5: rgba(68, 37, 125, 0.75);
   --background-index-card: rgba(26, 67, 143, 0.6);
   --league-grey-primary: rgb(78, 66, 99);
   --league-grey-modifier: rgb(237, 237, 241);
@@ -55,6 +57,7 @@
 /*////////////////////////
 ....TABLE OF CONTENTS.....
 /////////////////////////
+/////////////////////////
 
 UNIVERSAL STYLINGS
 ... Colour Scheme
@@ -76,6 +79,12 @@ HEADER SECTION
 */
 /*//////////////////*/
 /*Universal Stylings*/
+/* Colour Scheme */
+/* Theme*/
+body {
+  background-color: var(--background-primary);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

@@ -1,14 +1,16 @@
+@use '../base/base' as *;
+
 :root {
     /* Colour Scheme */
     /* Theme*/
-    --background-primary: rgba(252, 252, 252);
-    --background-primary-muted: rgb(219, 211, 224);
-    --background-secondary: rgba(68,37,125);
-    --background-secondary-modifier-1: rgba(68,37,125, 0.95);
-    --background-secondary-modifier-2: rgba(68,37,125, 0.90);
-    --background-secondary-modifier-3: rgba(68,37,125, 0.85);
-    --background-secondary-modifier-4: rgba(68,37,125, 0.80);
-    --background-secondary-modifier-5: rgba(68,37,125, 0.75);
+    --background-primary: #{$background-primary};
+    --background-primary-muted: #{$background-primary-muted};
+    --background-secondary: #{$background-secondary};
+    --background-secondary-modifier-1: #{map-get($background-secondary-modifier, one)};
+    --background-secondary-modifier-2: #{map-get($background-secondary-modifier, two)};
+    --background-secondary-modifier-3: #{map-get($background-secondary-modifier, three)};
+    --background-secondary-modifier-4: #{map-get($background-secondary-modifier, four)};
+    --background-secondary-modifier-5: #{map-get($background-secondary-modifier, five)};
     --background-index-card: rgba(26, 67, 143, 0.6);
     --league-grey-primary: rgb(78, 66, 99);
     --league-grey-modifier: rgb(237, 237, 241);

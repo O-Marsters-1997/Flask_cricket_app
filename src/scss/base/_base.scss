@@ -1,0 +1,14 @@
+ /* Colour Scheme */
+/* Theme*/
+$background-primary: rgb(255, 255, 255);
+$background-primary-muted: rgba(252, 252, 252);
+$background-secondary: rgb(74, 32, 157);
+
+// Modifier map
+$background-secondary-modifier: (
+                                    one: rgba(68,37,125, 0.95),
+                                    two: rgba(68,37,125, 0.90),
+                                    three: rgba(68,37,125, 0.85),
+                                    four: rgba(68,37,125, 0.80),
+                                    five: rgba(68,37,125, 0.75),
+                                )   
