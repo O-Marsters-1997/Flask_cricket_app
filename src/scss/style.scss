@@ -129,7 +129,7 @@ body {
     cursor: pointer;
     text-transform: lowercase;
     font-variant: small-caps;
-    font-family: var(--text-bold);
+    font-family: var($text-bold);
     padding-bottom: 0.175em;            
 }
 
@@ -149,7 +149,7 @@ body {
 }
 
 .content-nav-wrapper {
-    margin: 0 var(--margin-side);
+    margin: 0 var($margin-side);
     height: 100%;
 }
 
@@ -278,7 +278,7 @@ h3.group-league-heading, thead tr {
 
 h3.group-league-heading {
     margin: 3.5em 0 1.25em 30%;
-    font-family: var(--text-bold);
+    font-family: var($text-bold);
     font-weight: 400;
     font-size: 0.75rem;
 }
@@ -289,7 +289,7 @@ table {
 
 table * {
     text-align: center;
-    font-family: var(--text-regular);
+    font-family: var($text-regular);
 }
 
 thead {
@@ -303,7 +303,7 @@ thead tr {
 
 thead tr th {
     font-weight: 400;
-    font-family: var(--text-bold);
+    font-family: var($text-bold);
     
 }
 

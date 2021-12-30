@@ -11,4 +11,28 @@ $background-secondary-modifier: (
                                     three: rgba(68,37,125, 0.85),
                                     four: rgba(68,37,125, 0.80),
                                     five: rgba(68,37,125, 0.75),
-                                )   
+                                );
+
+$background-index-card: rgba(26, 67, 143, 0.6);
+$league-grey-primary: rgb(78, 66, 99);
+$league-grey-modifier: rgb(237, 237, 241);
+$league-hover: rgb(66, 49, 80);
+$blank: rgba(0, 0, 0);
+
+// Text colours
+
+$nav-text: rgb(252, 252, 252); 
+$text-primary-headings: rgb(0, 0, 0);
+$text-primary: rgb(66, 66, 66);
+$text-secondary: rgb(235, 230, 230);
+$nav-text: rgba(252, 252, 252);
+$grey-table-heading: rgb(15, 3, 26);
+$grey-table-primary-text: rgb(83, 83, 83);
+
+/*Typography*/
+$text-regular: Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", "Verdana", sans-serif;
+$text-bold: Raleway, "Nunito Sans", Glober, "Proxima Nova", Montserrat, sans-serif;
+
+/*Extras */
+$page-width-margin: 90vw;
+$margin-side: 5vw;

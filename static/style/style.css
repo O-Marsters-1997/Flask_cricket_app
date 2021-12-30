@@ -1,5 +1,7 @@
 /* Colour Scheme */
 /* Theme*/
+/*Typography*/
+/*Extras */
 :root {
   /* Colour Scheme */
   /* Theme*/
@@ -12,18 +14,18 @@
   --background-secondary-modifier-4: rgba(68, 37, 125, 0.8);
   --background-secondary-modifier-5: rgba(68, 37, 125, 0.75);
   --background-index-card: rgba(26, 67, 143, 0.6);
-  --league-grey-primary: rgb(78, 66, 99);
-  --league-grey-modifier: rgb(237, 237, 241);
-  --league-hover: rgb(66, 49, 80);
-  --blank: rgba(0, 0, 0, 0)
+  --league-grey-primary: #4e4263;
+  --league-grey-modifier: #ededf1;
+  --league-hover: #423150;
+  --blank: black;
   /*Text Colours*/
-  --nav-text: rgb(252, 252, 252);
-  --text-primary-headings: rgb(0, 0, 0);
-  --text-primary: rgb(66, 66, 66);
-  --text-secondary: rgb(235, 230, 230);
-  --nav-text: rgba(252, 252, 252);
-  --grey-table-heading: rgb(15, 3, 26);
-  --grey-table-primary-text: rgb(83, 83, 83);
+  --nav-text: #fcfcfc;
+  --text-primary-headings: black;
+  --text-primary: #424242;
+  --text-secondary: #ebe6e6;
+  --nav-text: #fcfcfc;
+  --grey-table-heading: #0f031a;
+  --grey-table-primary-text: #535353;
   /*Typography*/
   --text-regular: Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", "Verdana", sans-serif;
   --text-bold: Raleway, "Nunito Sans", Glober, "Proxima Nova", Montserrat, sans-serif;
@@ -162,7 +164,7 @@ body {
   cursor: pointer;
   text-transform: lowercase;
   font-variant: small-caps;
-  font-family: var(--text-bold);
+  font-family: var(Raleway, "Nunito Sans", Glober, "Proxima Nova", Montserrat, sans-serif);
   padding-bottom: 0.175em;
 }
 
@@ -179,7 +181,7 @@ body {
 }
 
 .content-nav-wrapper {
-  margin: 0 var(--margin-side);
+  margin: 0 var(5vw);
   height: 100%;
 }
 
@@ -302,7 +304,7 @@ h3.group-league-heading, thead tr {
 
 h3.group-league-heading {
   margin: 3.5em 0 1.25em 30%;
-  font-family: var(--text-bold);
+  font-family: var(Raleway, "Nunito Sans", Glober, "Proxima Nova", Montserrat, sans-serif);
   font-weight: 400;
   font-size: 0.75rem;
 }
@@ -313,7 +315,7 @@ table {
 
 table * {
   text-align: center;
-  font-family: var(--text-regular);
+  font-family: var(Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", "Verdana", sans-serif);
 }
 
 thead {
@@ -327,7 +329,7 @@ thead tr {
 
 thead tr th {
   font-weight: 400;
-  font-family: var(--text-bold);
+  font-family: var(Raleway, "Nunito Sans", Glober, "Proxima Nova", Montserrat, sans-serif);
 }
 
 thead tr {
