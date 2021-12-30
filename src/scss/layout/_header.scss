@@ -1,0 +1,101 @@
+// Imports
+
+@use '../base/' as *;
+
+/* Header Section*/
+
+/* Header Logo */
+
+.logo {
+    height: 8.75vh;
+    width: auto;
+    margin: 0.5em auto 0 1.5em;
+    filter: invert(100%) sepia(0%) saturate(24%) hue-rotate(114deg) brightness(108%) contrast(108%);
+}
+
+/* Header Navigation */
+
+.header nav {
+    position: relative;
+    height: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-list {
+    display: flex;
+    margin-right: 1.5em;
+}
+
+.header-list-item {
+    padding-right: 1.5em;
+    list-style: none;
+}
+
+.header-list-item a {
+    color: var(--nav-text);
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-family: var($text-bold);
+    padding-bottom: 0.175em;            
+}
+
+/*Focus link style for pressing tab and accessibility issues*/
+.header-list-item a:hover, .header-list-item a:focus, .content-nav-item a:focus {
+    border-bottom: 1px solid var(--nav-text);
+}
+
+
+/* Content Navigation */
+
+.content-nav {
+    color: var(--nav-text);
+    background-color: var(--background-secondary);
+    height: 10vh;
+
+}
+
+.content-nav-wrapper {
+    margin: 0 var($margin-side);
+    height: 100%;
+}
+
+.content-nav-list {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.content-nav-item {
+    list-style: none;
+    height: 100%;
+    width: 25%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Raleway;
+    font-weight: bold;
+    /* padding-top: 1.25em; */
+}
+
+.content-nav-item a {
+    display: block;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: 500;
+    /* height: 100%; */
+}
+
+.content-nav-item:hover {
+    background-color: rgba(61,33,112);
+}

@@ -1,0 +1,61 @@
+/* Home Page */
+
+.home-page {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+/*Jumbotron Image */
+.jumbotron-img {
+    height: 100vh;
+    grid-column: 1 / -1;
+    background: url(../images/Jumbotron.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* filter: invert(92%) sepia(3%) saturate(4606%) hue-rotate(188deg) brightness(87%) contrast(85%); */
+
+}
+
+.jumbotron-filter {
+    background: linear-gradient(var(--background-secondary), var(--background-secondary) 10%, var(--background-secondary-modifier-1) 20%, var(--background-secondary-modifier-2) 30%, var(--background-secondary-modifier-3) 40%, var(--background-secondary-modifier-3) 50%, var(--background-secondary-modifier-5) 60%);
+    height: 100%;
+}
+
+.jumbotron-overlay-text {
+    width: min(500px, 27.5vw);
+    position: absolute;
+    top: 15%;
+    left: 37.5vw;
+    text-align: center;
+    background-color: var(--background-index-card);
+    filter: grayscale(60%);
+    box-shadow: 5px 3px 3px var(--background-secondary);
+    border-radius: 15%;
+    color: var(--text-secondary);
+}
+
+.jumbotron-overlay-text h1 {
+    padding: 0.75em 0;
+    font-family: 'Merriweather';
+}
+
+.jumbotron-overlay-text p {
+    font-family: Raleway;
+    text-align: justify;
+    padding: 0 0.95em;
+}
+
+.jumbotron-overlay-text button {
+    font-family: Raleway;
+    font-weight: bold;
+    margin-bottom: 0.75em;
+    border-radius: 0.5em;
+    background-color: var(--background-secondary);
+    color: var(--text-secondary);
+    padding: 0.35em;
+}
+
+.index-btn{
+     left: 100%;
+}
