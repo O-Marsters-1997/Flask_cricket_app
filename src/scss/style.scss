@@ -1,6 +1,7 @@
 @use './base/' as *;
 @use './layout/' as *;
 @use './pages/' as *;
+@use './components/' as *;
 
 /* Main section */
 /* Teams *List*/
@@ -9,146 +10,9 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
 }
-/* League table*/
-
-table.league-table {
-    width: min(500px, 70%);
-    margin: 0 auto;
-    box-shadow: 0 2px 5px var(--league-grey-primary);
-    border-collapse: collapse;
-    overflow: hidden;
-}
-
-h3.group-league-heading, thead tr {
-    text-transform: uppercase;
-    color: var(--grey-table-heading);
-    font-size: 0.8rem;
-}
-
-h3.group-league-heading {
-    margin: 3.5em 0 1.25em 30%;
-    font-family: var($text-bold);
-    font-weight: 400;
-    font-size: 0.75rem;
-}
-
-table {
-    position: relative;
-}
-
-table * {
-    text-align: center;
-    font-family: var($text-regular);
-}
-
-thead {
-    box-shadow: 0px 7px 10px var(--league-grey-modifier);
-}
-
-thead tr {
-    text-transform: uppercase;
-    padding: 1.5em 0;
-}
-
-thead tr th {
-    font-weight: 400;
-    font-family: var($text-bold);
-    
-}
-
-thead tr {
-    height: 2.5em
-}
-
-tbody tr {
-    height: 3.5em;
-}
-
-tbody tr, tr a {
-    color: var(--grey-table-primary-text);
-    text-decoration: none;
-    border: none;
-    transition-property: border;
-    transition-duration: .2s;
-    font-size: 0.8rem;
-}
-
-tr a:hover {
-    /* text-decoration: underline; */
-    font-weight: 600;
-    border-bottom: 1px solid var(--grey-table-primary-text);
-}
-
-tbody tr:nth-of-type(2n) {
-    background-color: var(--league-grey-modifier);
-}
-
-
-.margin-buffer {
-    margin-bottom: 3.5em;
-    color: white;
-}
-
-/* Game Card */
-
-.game-container { 
-    display: grid;
-    margin: 1.5em 2.5em;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: 10px;
-}
-
-.game-grid-item {
-    grid-column: auto / span 4;
-}
-
-.game-card {
-    background-color: var(--background-primary-muted);
-    height: 35vh;
-    width: max(200px, 25vw);
-    text-align: center;
-    border-radius: 12.5%;
-    box-shadow: 5px 3px 3px var(--background-secondary);
-}
-
-.game-card h3 a {
-    color: var(--nav-text);
-}
 
 
 
-
-
-/*Footer*/
-
-.footer {   
-    background-color: var(--background-secondary);
-    color: var(--nav-text);
-    clip-path: polygon(0 0, 100% 45%, 100% 100%, 0 100%);
-}
-
-.flag-icon { 
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    padding-top: -5px;
-    overflow: hidden;
-}
-
-.flag-rect {
-    width: 5vw;
-    height: auto;
-}
-
-.footer-text {
-    display: flex;
-    height: 100%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 7.5px;
-    position: relative;
-}
 
 /* Miscelleneous */
 

@@ -193,6 +193,23 @@ body {
   background-color: #3d2170;
 }
 
+/*Footer*/
+.footer {
+  background-color: var(--background-secondary);
+  color: var(--nav-text);
+  clip-path: polygon(0 0, 100% 45%, 100% 100%, 0 100%);
+}
+
+.footer-text {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 7.5px;
+  position: relative;
+}
+
 /* Home Page */
 .home-page {
   display: grid;
@@ -251,13 +268,6 @@ body {
 
 .index-btn {
   left: 100%;
-}
-
-/* Main section */
-/* Teams *List*/
-.team-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
 }
 
 /* League table*/
@@ -362,13 +372,6 @@ tbody tr:nth-of-type(2n) {
   color: var(--nav-text);
 }
 
-/*Footer*/
-.footer {
-  background-color: var(--background-secondary);
-  color: var(--nav-text);
-  clip-path: polygon(0 0, 100% 45%, 100% 100%, 0 100%);
-}
-
 .flag-icon {
   width: 25px;
   height: 25px;
@@ -382,14 +385,11 @@ tbody tr:nth-of-type(2n) {
   height: auto;
 }
 
-.footer-text {
-  display: flex;
-  height: 100%;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 7.5px;
-  position: relative;
+/* Main section */
+/* Teams *List*/
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 
 /* Miscelleneous */
