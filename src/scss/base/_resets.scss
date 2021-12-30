@@ -1,0 +1,12 @@
+body {
+    background-color: var(--background-primary);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:focus {
+    outline: none
+}

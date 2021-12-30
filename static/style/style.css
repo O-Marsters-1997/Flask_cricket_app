@@ -56,33 +56,6 @@
   /* Safari, Android, iOS */
   font-weight: bold;
 }
-/*////////////////////////
-....TABLE OF CONTENTS.....
-/////////////////////////
-/////////////////////////
-
-UNIVERSAL STYLINGS
-... Colour Scheme
-....... Theme
-.......  Text Colours
-... Typography
-... Extras
-
-GENERAL LAYOUT
-...Header
-...Content-nav
-...Sidebar
-...Main Content
-...Footer
-Logo
-HEADER SECTION
-... Header Logo
-... Header Navigation
-*/
-/*//////////////////*/
-/*Universal Stylings*/
-/* Colour Scheme */
-/* Theme*/
 body {
   background-color: var(--background-primary);
 }
