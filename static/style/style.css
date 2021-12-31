@@ -7,6 +7,7 @@
   /* Theme*/
   --background-primary: white;
   --background-primary-muted: #fcfcfc;
+  --background-primary-alt: #e3e3e3;
   --background-secondary: #4a209d;
   --background-secondary-modifier-1: rgba(68, 37, 125, 0.95);
   --background-secondary-modifier-2: rgba(68, 37, 125, 0.9);
@@ -347,29 +348,60 @@ tbody tr:nth-of-type(2n) {
   color: white;
 }
 
-/* Game Card */
 .game-container {
   display: grid;
   margin: 1.5em 2.5em;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.game-container .game-grid-item {
+  grid-column: auto/span 6;
 }
 
-.game-grid-item {
-  grid-column: auto/span 4;
-}
-
+/* Game Card */
 .game-card {
+  position: relative;
   background-color: var(--background-primary-muted);
-  height: 35vh;
-  width: max(200px, 25vw);
+  width: 100%;
   text-align: center;
   border-radius: 12.5%;
-  box-shadow: 5px 3px 3px var(--background-secondary);
+  border: 1px solid var(--background-primary-alt);
+}
+.game-card .game-card-title-wrapper {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  position: relative;
+}
+.game-card .game-card-title-wrapper .game-date {
+  position: absolute;
+  right: 10%;
+}
+.game-card .game-card-flag-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.game-card .game-card-flag-wrapper .team-score-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.game-card .game-card-flag-wrapper .team-score-wrapper .flag-icon {
+  margin-left: 10%;
+}
+.game-card .game-card-flag-wrapper .team-score-wrapper .team-score {
+  margin-right: 10%;
+}
+.game-card .game-delete-btn {
+  position: absolute;
+  bottom: 0%;
+  right: 10%;
 }
 
 .game-card h3 a {
-  color: var(--nav-text);
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
 .flag-icon {

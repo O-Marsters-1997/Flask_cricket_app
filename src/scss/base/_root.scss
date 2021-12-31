@@ -6,6 +6,7 @@
     // this is a test comment
     --background-primary: #{$background-primary};
     --background-primary-muted: #{$background-primary-muted};
+    --background-primary-alt: #{$background-primary-alt};
     --background-secondary: #{$background-secondary};
     --background-secondary-modifier-1: #{map-get($background-secondary-modifier, one)};
     --background-secondary-modifier-2: #{map-get($background-secondary-modifier, two)};

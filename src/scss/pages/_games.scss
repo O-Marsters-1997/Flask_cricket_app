@@ -1,0 +1,69 @@
+// games page
+
+.game-container { 
+    display: grid;
+    margin: 1.5em 2.5em;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 10px;
+    // background-color: red;
+    max-width: 800px;
+    margin: 0 auto;
+
+    & .game-grid-item {
+        grid-column: auto / span 6;
+    }
+}
+
+/* Game Card */
+.game-card {
+    position: relative;
+    background-color: var(--background-primary-muted);
+    // height: 35vh;
+    width: 100%;
+    text-align: center;
+    border-radius: 12.5%;
+    border: 1px solid var(--background-primary-alt);
+
+    .game-card-title-wrapper {
+        display: flex;
+        justify-content: start;
+        width: 100%;
+        position: relative;
+    
+        & .game-date {
+            position: absolute;
+            right: 10%;
+        }
+    }
+    & .game-card-flag-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        & .team-score-wrapper {
+            display: flex;
+            justify-content: space-between;
+        
+            & .flag-icon {
+                margin-left: 10%;
+            }
+            & .team-score {
+                margin-right: 10%;
+            }
+        }
+    }
+
+    & .game-delete-btn {
+        position: absolute;
+        bottom: 0%;
+        right: 10%;
+    }
+}
+
+
+
+
+
+.game-card h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
