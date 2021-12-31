@@ -1,5 +1,13 @@
-// games page
+// Games title
 
+.games-title {
+    padding: 1em 0;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+
+// games page
 .game-container { 
     display: grid;
     margin: 1.5em 2.5em;
@@ -23,16 +31,22 @@
     text-align: center;
     border-radius: 12.5%;
     border: 1px solid var(--background-primary-alt);
+    padding-top: 2em;
 
     .game-card-title-wrapper {
         display: flex;
         justify-content: start;
         width: 100%;
         position: relative;
+
+        & .fixture-title {
+            padding-left: 2em;
+        }
     
         & .game-date {
             position: absolute;
             right: 10%;
+            top: 20%;
         }
     }
     & .game-card-flag-wrapper {
@@ -40,6 +54,7 @@
         flex-direction: column;
 
         & .team-score-wrapper {
+            margin-top: 1em;
             display: flex;
             justify-content: space-between;
         
@@ -50,6 +65,10 @@
                 margin-right: 10%;
             }
         }
+    }
+
+    & .game-result {
+        padding-bottom: 1em;
     }
 
     & .game-delete-btn {

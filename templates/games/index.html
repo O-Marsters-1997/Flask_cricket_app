@@ -3,15 +3,15 @@
 {% block hello %}
 
 
-<h3 class="games-title">Upcoming fixtures</h3>
+<h2 class="games-title">Upcoming fixtures</h3>
 
-<h3 class="games-title">Previous fixtures</h3>
+<h2 class="games-title">Previous fixtures</h3>
 <div class="game-container">
     {% for game in games %}
     <div class="game-grid-item">
         <div class="game-card">
             <div class="game-card-title-wrapper">
-                <h3><a href="/games/{{game.id}}">{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
+                <h3 class = "fixture-title"><a href="/games/{{game.id}}">{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
                 <h4 class = "game-date">{{game.game_date}}</h4>
             </div>
             <div class="game-card-flag-wrapper">

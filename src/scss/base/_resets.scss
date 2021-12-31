@@ -1,12 +1,25 @@
+@use '../base/base' as *;
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
 body {
     background-color: var(--background-primary);
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
 :focus {
     outline: none
+}
+
+// Base typography styling application
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $text-bold;
+}
+
+p, a, ul li, ol, li span {
+    font-family: $text-regular;
 }

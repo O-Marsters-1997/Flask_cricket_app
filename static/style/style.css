@@ -27,12 +27,6 @@
   --nav-text: #fcfcfc;
   --grey-table-heading: #0f031a;
   --grey-table-primary-text: #535353;
-  /*Typography*/
-  --text-regular: Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", "Verdana", sans-serif;
-  --text-bold: Raleway, "Nunito Sans", Glober, "Proxima Nova", Montserrat, sans-serif;
-  /*Extras */
-  --page-width-margin: 90vw;
-  --margin-side: 5vw;
 }
 
 /* merriweather-700 - latin */
@@ -57,17 +51,25 @@
   /* Safari, Android, iOS */
   font-weight: bold;
 }
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--background-primary);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
 :focus {
   outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Raleway, "Nunito Sans", Glober, "Proxima Nova", Montserrat, sans-serif;
+}
+
+p, a, ul li, ol, li span {
+  font-family: Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", "Verdana", sans-serif;
 }
 
 /*//////////////////*/
@@ -348,6 +350,12 @@ tbody tr:nth-of-type(2n) {
   color: white;
 }
 
+.games-title {
+  padding: 1em 0;
+  text-align: center;
+  font-size: 1.4em;
+}
+
 .game-container {
   display: grid;
   margin: 1.5em 2.5em;
@@ -368,6 +376,7 @@ tbody tr:nth-of-type(2n) {
   text-align: center;
   border-radius: 12.5%;
   border: 1px solid var(--background-primary-alt);
+  padding-top: 2em;
 }
 .game-card .game-card-title-wrapper {
   display: flex;
@@ -375,15 +384,20 @@ tbody tr:nth-of-type(2n) {
   width: 100%;
   position: relative;
 }
+.game-card .game-card-title-wrapper .fixture-title {
+  padding-left: 2em;
+}
 .game-card .game-card-title-wrapper .game-date {
   position: absolute;
   right: 10%;
+  top: 20%;
 }
 .game-card .game-card-flag-wrapper {
   display: flex;
   flex-direction: column;
 }
 .game-card .game-card-flag-wrapper .team-score-wrapper {
+  margin-top: 1em;
   display: flex;
   justify-content: space-between;
 }
@@ -392,6 +406,9 @@ tbody tr:nth-of-type(2n) {
 }
 .game-card .game-card-flag-wrapper .team-score-wrapper .team-score {
   margin-right: 10%;
+}
+.game-card .game-result {
+  padding-bottom: 1em;
 }
 .game-card .game-delete-btn {
   position: absolute;
