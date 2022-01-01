@@ -13,6 +13,7 @@
     --background-secondary-modifier-3: #{map-get($background-secondary-modifier, three)};
     --background-secondary-modifier-4: #{map-get($background-secondary-modifier, four)};
     --background-secondary-modifier-5: #{map-get($background-secondary-modifier, five)};
+    --background-tertiary: #{$background-tertiary};
     --background-index-card: #{$background-index-card};
     --league-grey-primary: #{$league-grey-primary};
     --league-grey-modifier: #{$league-grey-modifier};
