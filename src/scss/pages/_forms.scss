@@ -1,0 +1,161 @@
+@use '../base/' as *;
+@use '../components/' as *;
+
+
+// General stylings for forms in general
+
+.form-container {
+    position: relative;
+    width: 100%;
+    height: 105%;
+
+     & .form-overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: url('../images/cricket-background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+	    background-position: center;
+        filter: grayscale(60%) contrast(120%) sepia(80%);
+        z-index: -100;
+    }
+
+    & .form-overlay-filter {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(31, 31, 31, 0.5);
+        background-repeat: no-repeat;
+        background-size: cover;
+	    background-position: center;
+        // filter: grayscale(80%) contrast(120%);
+        z-index: -50;
+    }
+}
+
+// New game form
+
+.new-game-form-container {
+    position: relative;
+    width: 100%;
+
+    & .new-form {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 27.5%;
+        left: 40%;
+        width: fit-content;
+        background-color: var(--background-primary);
+        border-top: 5px solid var(--background-secondary);
+
+        & * {
+            font-size: 1.1255em;
+        }
+    
+        & .new-form-title {
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 1.5em 0 .75em;
+            text-transform: capitalize;
+        }
+
+        & div:not(div:last-child) {
+            margin: 0 $ml;
+            border-bottom: 2px solid var(--background-secondary);
+            line-height: 1.5em;
+            padding-top: 1.1em;
+        }
+
+        & .team_1_wrapper, .team_2_wrapper, .team-1_runs-wrapper, .team_2_runs_wrapper, .game-date-wrapper {
+            position: relative;
+        }
+
+        & input, select {
+            border: none;
+            background-color: transparent;
+            color: var(--text-primary);
+            width: 95%;
+        }
+
+        & ::placeholder {
+            color: var(--text-primary);
+            opacity: 1; 
+        }
+
+        & .submit-button {
+            @include purple-button;
+            width: fit-content;
+            padding: .5em;
+            margin: 1.5em auto;
+            
+        
+            & input {
+                color: var(--nav-text) !important;
+                text-align: center;
+            }
+        
+        }
+    }
+}
+
+// new team form
+
+.new-team-form-container {
+    position: relative;
+    width: 100%;
+
+    & .new-form {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 27.5%;
+        left: 40%;
+        width: fit-content;
+        background-color: var(--background-primary);
+        border-top: 5px solid var(--background-secondary);
+
+        & * {
+            font-size: 1.1255em;
+        }
+    
+        & .new-form-title {
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 1.5em 0 .75em;
+            text-transform: capitalize;
+        }
+
+        & div:not(div:last-child) {
+            margin: 0 $ml;
+            border-bottom: 2px solid var(--background-secondary);
+            line-height: 1.5em;
+            padding-top: 1.1em;
+        }
+
+        & input, select {
+            border: none;
+            background-color: transparent;
+            color: var(--text-primary);
+            width: 95%;
+        }
+
+        & ::placeholder {
+            color: var(--text-primary);
+            opacity: 1; 
+        }
+
+        & .submit-button {
+            @include purple-button;
+            width: fit-content;
+            padding: .5em;
+            margin: 1.5em auto;
+            
+            & input {
+                color: var(--nav-text) !important;
+                text-align: center;
+            }
+        }
+        }
+}

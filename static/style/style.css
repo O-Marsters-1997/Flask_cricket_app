@@ -14,6 +14,7 @@
   --background-secondary-modifier-3: rgba(68, 37, 125, 0.85);
   --background-secondary-modifier-4: rgba(68, 37, 125, 0.8);
   --background-secondary-modifier-5: rgba(68, 37, 125, 0.75);
+  --background-tertiary: #9792e3;
   --background-index-card: rgba(26, 67, 143, 0.6);
   --league-grey-primary: #4e4263;
   --league-grey-modifier: #ededf1;
@@ -34,20 +35,20 @@
   font-family: "Merriweather";
   font-style: normal;
   font-weight: 700;
-  src: url("fonts/merriweather-v25-latin-700.woff2") format("woff2"), url("fonts/merriweather-v25-latin-700.woff") format("woff");
+  src: url("../fonts/merriweather-v25-latin-700.woff2") format("woff2"), url("../fonts/merriweather-v25-latin-700.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
   font-family: "Raleway";
   font-style: normal;
-  src: url("fonts/raleway-v22-latin-regular.woff2") format("woff2"), url("fonts/raleway-v22-latin-regular.woff") format("woff"), url("fonts/raleway-v22-latin-regular.ttf") format("truetype");
+  src: url("../fonts/raleway-v22-latin-regular.woff2") format("woff2"), url("../fonts/raleway-v22-latin-regular.woff") format("woff"), url("../fonts/raleway-v22-latin-regular.ttf") format("truetype");
   /* Safari, Android, iOS */
   font-weight: normal;
 }
 @font-face {
   font-family: "Raleway";
   font-style: normal;
-  src: url("fonts/raleway-v22-latin-700.woff2") format("woff2"), url("fonts/raleway-v22-latin-700.woff") format("woff"), url("fonts/raleway-v22-latin-700.ttf") format("truetype");
+  src: url("../fonts/raleway-v22-latin-700.woff2") format("woff2"), url("../fonts/raleway-v22-latin-700.woff") format("woff"), url("../fonts/raleway-v22-latin-700.ttf") format("truetype");
   /* Safari, Android, iOS */
   font-weight: bold;
 }
@@ -68,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Raleway, "Nunito Sans", Glober, "Proxima Nova", Montserrat, sans-serif;
 }
 
-p, a, ul li, ol, li span {
+p, a, ul li, ol, li span, label, input {
   font-family: Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", "Verdana", sans-serif;
 }
 
@@ -434,11 +435,209 @@ tbody tr:nth-of-type(2n) {
   height: auto;
 }
 
-/* Main section */
-/* Teams *List*/
 .team-container {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 10px;
+  max-width: 1000px;
+  text-align: center;
+  margin: 5em auto;
+}
+.team-container .teams-list {
+  grid-column: 1/-1;
+  text-align: center;
+  padding-bottom: 1.25em;
+  font-family: Raleway;
+}
+.team-container .country-wrapper {
+  grid-column: auto/span 1;
+  display: flex;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1em;
+  border: 1px solid var(--background-primary-alt);
+  border-radius: 12.5%;
+  width: 70%;
+  height: 5vw;
+}
+.team-container .country-wrapper .team-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 1.445vh 0 0 1em;
+}
+.team-container .country-wrapper .team-delete-btn {
+  position: absolute;
+  top: 70%;
+  right: -10%;
+}
+.team-container .country-wrapper .team-delete-btn .delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.team-container .country-wrapper .team-delete-btn .delete-btn i {
+  color: var(--text-primary);
+}
+
+.new-team-wrapper {
+  width: fit-content;
+  max-width: 1000px !important;
+  width: 100%;
+  margin: 5em auto;
+  padding: 0 3.5em;
+}
+.new-team-wrapper .new-team-title {
+  font-weight: 600;
+  font-family: "raleway";
+  color: var(--text-primary);
+}
+.new-team-wrapper .submit-button {
+  background-color: var(--background-secondary);
+  color: var(--nav-text);
+  border-radius: 12.5%;
+  cursor: pointer;
+  margin-top: 0.75em;
+  padding: 0.5em;
+  font-variant: small-caps;
+  text-transform: lowercase;
+}
+
+.form-container {
+  position: relative;
+  width: 100%;
+  height: 105%;
+}
+.form-container .form-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/cricket-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(60%) contrast(120%) sepia(80%);
+  z-index: -100;
+}
+.form-container .form-overlay-filter {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(31, 31, 31, 0.5);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -50;
+}
+
+.new-game-form-container {
+  position: relative;
+  width: 100%;
+}
+.new-game-form-container .new-form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 27.5%;
+  left: 40%;
+  width: fit-content;
+  background-color: var(--background-primary);
+  border-top: 5px solid var(--background-secondary);
+}
+.new-game-form-container .new-form * {
+  font-size: 1.1255em;
+}
+.new-game-form-container .new-form .new-form-title {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1.5em 0 0.75em;
+  text-transform: capitalize;
+}
+.new-game-form-container .new-form div:not(div:last-child) {
+  margin: 0 1.5em;
+  border-bottom: 2px solid var(--background-secondary);
+  line-height: 1.5em;
+  padding-top: 1.1em;
+}
+.new-game-form-container .new-form .team_1_wrapper, .new-game-form-container .new-form .team_2_wrapper, .new-game-form-container .new-form .team-1_runs-wrapper, .new-game-form-container .new-form .team_2_runs_wrapper, .new-game-form-container .new-form .game-date-wrapper {
+  position: relative;
+}
+.new-game-form-container .new-form input, .new-game-form-container .new-form select {
+  border: none;
+  background-color: transparent;
+  color: var(--text-primary);
+  width: 95%;
+}
+.new-game-form-container .new-form ::placeholder {
+  color: var(--text-primary);
+  opacity: 1;
+}
+.new-game-form-container .new-form .submit-button {
+  background-color: var(--background-secondary);
+  color: var(--nav-text);
+  border-radius: 12.5%;
+  cursor: pointer;
+  width: fit-content;
+  padding: 0.5em;
+  margin: 1.5em auto;
+}
+.new-game-form-container .new-form .submit-button input {
+  color: var(--nav-text) !important;
+  text-align: center;
+}
+
+.new-team-form-container {
+  position: relative;
+  width: 100%;
+}
+.new-team-form-container .new-form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 27.5%;
+  left: 40%;
+  width: fit-content;
+  background-color: var(--background-primary);
+  border-top: 5px solid var(--background-secondary);
+}
+.new-team-form-container .new-form * {
+  font-size: 1.1255em;
+}
+.new-team-form-container .new-form .new-form-title {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1.5em 0 0.75em;
+  text-transform: capitalize;
+}
+.new-team-form-container .new-form div:not(div:last-child) {
+  margin: 0 1.5em;
+  border-bottom: 2px solid var(--background-secondary);
+  line-height: 1.5em;
+  padding-top: 1.1em;
+}
+.new-team-form-container .new-form input, .new-team-form-container .new-form select {
+  border: none;
+  background-color: transparent;
+  color: var(--text-primary);
+  width: 95%;
+}
+.new-team-form-container .new-form ::placeholder {
+  color: var(--text-primary);
+  opacity: 1;
+}
+.new-team-form-container .new-form .submit-button {
+  background-color: var(--background-secondary);
+  color: var(--nav-text);
+  border-radius: 12.5%;
+  cursor: pointer;
+  width: fit-content;
+  padding: 0.5em;
+  margin: 1.5em auto;
+}
+.new-team-form-container .new-form .submit-button input {
+  color: var(--nav-text) !important;
+  text-align: center;
 }
 
 /* Miscelleneous */

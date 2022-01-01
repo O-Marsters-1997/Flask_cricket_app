@@ -3,13 +3,6 @@
 @use './pages/' as *;
 @use './components/' as *;
 
-/* Main section */
-/* Teams *List*/
-
-.team-container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-}
 
 
 

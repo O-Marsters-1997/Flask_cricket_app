@@ -1,0 +1,82 @@
+@use '../base/' as *;
+@use '../components/' as *;
+
+//  Team container grid 
+
+.team-container {
+    // background-color: purple;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 10px;
+    max-width: 1000px;
+    text-align: center;
+    margin: 5em auto;
+
+    & .teams-list {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding-bottom: 1.25em;
+        font-family: Raleway;
+    }
+
+    & .country-wrapper {
+        grid-column: auto / span 1;
+        display: flex;
+        position: relative;
+        text-align: center;
+        margin: 0 auto;
+        padding: 1em;
+        border: 1px solid var(--background-primary-alt);
+        border-radius: 12.5%;
+        width: 70%;
+        height: 5vw;
+
+        & .team-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 1.445vh 0 0 1em;
+        }
+    
+        & .team-delete-btn {
+            position: absolute;
+            top: 70%;
+            right: -10%;
+
+            & .delete-btn {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            
+                & i {
+                    color: var(--text-primary);
+                }
+
+            }
+        }
+    }
+}
+
+.new-team-wrapper {
+    // margin: 0 auto;
+    width: fit-content;
+    max-width: 1000px !important;
+    width: 100%;
+    margin: 5em auto;
+    padding:  0 3.5em;
+
+    & .new-team-title {
+        font-weight: 600;
+        font-family: "raleway";
+        color: var(--text-primary);
+    }
+
+    & .submit-button {
+        @include purple-button;
+        margin-top: .75em;
+        padding: .5em;
+        font-variant: small-caps;
+        text-transform: lowercase;
+    }
+}
+

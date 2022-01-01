@@ -1,48 +1,50 @@
 {% extends "base.html"%}
 
 {% block new_team_form %}
-
-<form action="/games" method="post" class = "new-game-form">
-
-    <div class = "team_1_wrapper">
-    <label for="team_1_id">Batting First:</label>
-    <select id="team_1_id" name="team_1_id">
-        <option value="" disabled selected hidden>Choose a team</option>
-      {% for team in teams %}
+<div class="form-container new-game-form-container">
+  <div class="form-overlay"></div>
+  <div class="form-overlay-filter"></div>
+  <form action="/games" method="post" class="new-form">
+    <h3 class="new-form-title">New game details</h3>
+    <div class="team_1_wrapper">
+      <!-- <label for="team_1_id">Batting First:</label> -->
+      <select id="team_1_id" name="team_1_id">
+        <option value="" disabled selected hidden>Batting first</option>
+        {% for team in teams %}
         <option value="{{ team.id }}">{{ team.name }}</option>
-      {% endfor %}
-    </select>
+        {% endfor %}
+      </select>
     </div>
 
-    <div class = "team_2_wrapper">
-    <label for="team_2_id">Batting last:</label>
-    <select id="team_2_id" name="team_2_id">
-        <option value="" disabled selected hidden>Choose a team</option>
-      {% for team in teams %}
+    <div class="team_2_wrapper">
+      <!-- <label for="team_2_id">Batting last:</label> -->
+      <select id="team_2_id" name="team_2_id">
+        <option value="" disabled selected hidden>Batting second</option>
+        {% for team in teams %}
         <option value="{{ team.id }}">{{ team.name }}</option>
-      {% endfor %}
-    </select>
+        {% endfor %}
+      </select>
     </div>
 
-    <div class = "team-1-runs-wrapper">
-        <label for="team_1_runs">Batting first runs:</label>
-        <input type="number" id="team_1_runs" name="team_1_runs">
+    <div class="team-1-runs-wrapper">
+      <!-- <label for="team_1_runs">Batting first runs:</label> -->
+      <input type="number" id="team_1_runs" name="team_1_runs" placeholder="Batting first runs">
     </div>
 
-    <div class = "team-1-runs-wrapper">
-        <label for="team_2_runs">Batting last runs:</label>
-        <input type="number" id="team_2_runs" name="team_2_runs">
+    <div class="team-1-runs-wrapper">
+      <!-- <label for="team_2_runs">Batting last runs:</label> -->
+      <input type="number" id="team_2_runs" name="team_2_runs" placeholder="Batting second runs">
     </div>
 
-    <div class = "game_date wrapper">
-        <label for="game_date">Date of match:</label>
-        <input type="date" id="game-date" name="game_date" value="2021-11-02" min= "2021-11-01" max = "2021-11-30">
+    <div class="game_date wrapper">
+      <label for="game_date">Date of match:</label>
+      <input type="date" id="game-date" name="game_date" value="2021-11-02" min="2021-11-01" max="2021-11-30">
     </div>
     <div class="submit-button">
-        <label for="submit"></label>
-        <input type="submit" value= "Add game">
+      <input type="submit" value="Add game">
     </div>
 
-</form>
+  </form>
+</div>
 
 {% endblock %}

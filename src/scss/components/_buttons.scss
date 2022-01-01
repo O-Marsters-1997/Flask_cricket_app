@@ -1,0 +1,8 @@
+@use '../base/' as *;
+
+@mixin purple-button {
+    background-color: var(--background-secondary);
+    color: var(--nav-text);
+    border-radius: 12.5%;
+    cursor: pointer;
+}
