@@ -80,3 +80,54 @@
     }
 }
 
+// Show teams 
+
+.team-details-container {
+    position: relative;
+    width: 40%;
+    margin: 5.5em auto;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25em;
+
+
+    & .team-name {
+        text-align: center;
+        width: fit-content !important;
+        align-self: center;
+        padding-bottom: .5em;
+    }
+
+    & .details-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        line-height: 1.75em;
+    
+        & p {
+            padding-bottom: .75em;
+            margin-left: 10%;
+            margin-left: 10%;
+        }
+
+        & .team-button-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            margin-left: 10%;
+
+            & button {
+                @include purple-button;
+                font-size: 1.1em;
+                padding: 0.25em;
+                margin-bottom: .75em;
+            }
+        }
+    }
+
+    & .flag-rect {
+        position: absolute;
+        top: 5%;
+        left: 10%;
+    }
+}
