@@ -3,53 +3,94 @@
 {% block content %}
 
 
-  
-<div class="game-card">
-    <h3 class = "big">{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
-    <h4>{{game.game_date}}</h4>
-    <div class="game-card-flag-wrapper">
-        <img src="/static/images/{{game.team_1.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
-        <img src="/static/images/{{game.team_2.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
-    </div>
-    <div class="score-wrapper">
-        <p>{{game.team_1_runs}} runs vs {{game.team_2_runs}} runs</p>
-        {% if game.team_1_runs > game.team_2_runs %}
-        <em>{{game.team_1.name}} wins!</em>
-        {% elif game.team_2_runs > game.team_1_runs %}
-        <em>{{game.team_2.name}} wins!</em>
-        {% endif %}
-        <p>Editing the winner of the game would have an effect on the points table, if the result is incorrect the fixture will be deleted and added again. This section is instead intended for adding particular statistics and retrospective facts about the game</p>
-    </div>
 
- <form action="/games/{{game.id}}" method="post">
-  
-    <div class = "team-name-wrapper">
-        <input name = "team_1_id" class = "invisible" readonly value="{{game.team_1.id}}">
-    </div>
-    <div class = "team-name-wrapper">
-        <input name ="team_2_id" class = "invisible" value="{{game.team_2.id}}" readonly>
-    </div>
-  
-    
- 
-    <div class = "team-1-runs-wrapper">
-        <label for="team_1_runs">{{game.team_1.name}} runs:</label>
-        <input type="number" id="team_1_runs" name="team_1_runs">
-    </div>
 
-    <div class = "team-1-runs-wrapper">
-        <label for="team_2_runs">{{game.team_2.name}} runs:</label>
-        <input type="number" id="team_2_runs" name="team_2_runs">
-    </div>
+<!-- <form action="/games/{{game.id}}" method="post">
 
-    <div class = "game_date wrapper">
-        <label for="game_date">Date of match:</label>
-        <input type="date" id="game-date" name="game_date" value="2021-11-02" min= "2021-11-01" max = "2021-11-30">
-    </div>
-    <div class="submit-button">
-        <label for="submit"></label>
-        <input type="submit" value= "Edit game">
-    </div>
-  </form>
+        <div class="team-name-wrapper">
+            <input name="team_1_id" class="invisible" readonly value="{{game.team_1.id}}">
+        </div>
+        <div class="team-name-wrapper">
+            <input name="team_2_id" class="invisible" value="{{game.team_2.id}}" readonly>
+        </div>
+
+
+
+        <div class="team-1-runs-wrapper">
+            <label for="team_1_runs">{{game.team_1.name}} runs:</label>
+            <input type="number" id="team_1_runs" name="team_1_runs">
+        </div>
+
+        <div class="team-1-runs-wrapper">
+            <label for="team_2_runs">{{game.team_2.name}} runs:</label>
+            <input type="number" id="team_2_runs" name="team_2_runs">
+        </div>
+
+        <div class="game_date wrapper">
+            <label for="game_date">Date of match:</label>
+            <input type="date" id="game-date" name="game_date" value="2021-11-02" min="2021-11-01" max="2021-11-30">
+        </div>
+        <div class="submit-button">
+            <label for="submit"></label>
+            <input type="submit" value="Edit game">
+        </div>
+    </form> -->
+
+<div class="form-container edit-team-form-container">
+    <div class="form-overlay"></div>
+    <div class="form-overlay-filter"></div>
+    <form action="/games/{{game.id}}" method="post" class="edit-form">
+        <div>
+            <div class="form-title-wrapper">
+                <h3>{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
+                <h4>{{game.game_date}}</h4>
+            </div>
+            <div class="form-flag-wrapper">
+                <img src="/static/images/{{game.team_1.name}}.jpg" class="flag-rect" alt="Accompanying flag">
+                <img src="/static/images/{{game.team_2.name}}.jpg" class="flag-rect" alt="Accompanying flag">
+            </div>
+            <div class="score-wrapper">
+                <p>{{game.team_1_runs}} runs vs {{game.team_2_runs}} runs</p>
+                {% if game.team_1_runs > game.team_2_runs %}
+                <em>{{game.team_1.name}} wins!</em>
+                {% elif game.team_2_runs > game.team_1_runs %}
+                <em>{{game.team_2.name}} wins!</em>
+                {% endif %}
+                <p class="edit-game-note">Editing the winner of the game would have an effect on the points table, if
+                    the result is incorrect
+                    the
+                    fixture will be deleted and added again. This section is instead intended for adding particular
+                    statistics
+                    and retrospective facts about the game</p>
+            </div>
+            <div class="form-title-wrapper">
+                <h3 class="edit-form-title">Edit team details</h3>
+            </div>
+            <div class="team-name-wrapper">
+                <input name="team_1_id" class="invisible" readonly value="{{game.team_1.id}}">
+            </div>
+            <div class="team-name-wrapper">
+                <input name="team_2_id" class="invisible" value="{{game.team_2.id}}" readonly>
+            </div>
+
+            <div class="team-1-runs-wrapper">
+                <input type="number" id="team_1_runs" name="team_1_runs">
+            </div>
+            
+            <div class="team-1-runs-wrapper">
+                <input type="number" id="team_2_runs" name="team_2_runs">
+            </div>
+            <div class="game-date-wrapper">
+                <label for="game_date">Date of match:</label>
+                <input type="date" id="game-date" name="game_date" value="2021-11-02" min="2021-11-01" max="2021-11-30">
+            </div>
+
+            <div class="submit-button">
+                <label for="submit"></label>
+                <input type="submit" value="Edit game">
+            </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

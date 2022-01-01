@@ -4,24 +4,31 @@
 
 <div class="game-container">
     {% for game in games %}
-        <div class="game-grid-item">
+        <div class="game-grid-item team-games-margin-top">
             <div class="game-card">
-                <h3><a href="/games/{{game.id}}">{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
-                <h4>{{game.game_date}}</h4>
-                <div class="game-card-flag-wrapper">
-                    <img src="/static/images/{{game.team_1.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
-                    <img src="/static/images/{{game.team_2.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
+                <div class="game-card-title-wrapper">
+                    <h3 class="fixture-title"><a href="/games/{{game.id}}">{{game.team_1.name}} vs
+                            {{game.team_2.name}}</a></h3>
+                    <h4 class="game-date">{{game.game_date}}</h4>
                 </div>
-                <div class="score-wrapper">
-                    <p>{{game.team_1_runs}} runs vs {{game.team_2_runs}} runs </p>
+                <div class="game-card-flag-wrapper">
+                    <div class="team-score-wrapper">
+                        <img src="/static/images/{{game.team_1.name}}.jpg" class="flag-icon" alt="Accompanying flag">
+                        <p class="team-score">{{game.team_1_runs}}</p>
+                    </div>
+                    <div class="team-score-wrapper">
+                        <img src="/static/images/{{game.team_2.name}}.jpg" class="flag-icon" alt="Accompanying flag">
+                        <p class="team-score">{{game.team_2_runs}}</p>
+                    </div>
+                </div>
+                <div class="game-result">
                     {% if game.team_1_runs > game.team_2_runs %}
                     <em>{{game.team_1.name}} wins!</em>
                     {% elif game.team_2_runs > game.team_1_runs %}
                     <em>{{game.team_2.name}} wins!</em>
                     {% endif %}
                 </div>
-                <form action="/games/{{game.id}}/delete" method="POST">
-
+                <form class="game-delete-btn" action="/games/{{game.id}}/delete" method="POST">
                     <button>
                         Delete
                     </button>

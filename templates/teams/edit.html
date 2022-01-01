@@ -1,43 +1,35 @@
 {% extends "base.html"%}
 
 {% block content%}
+<div class="form-container edit-team-form-container">
+    <div class="form-overlay"></div>
+    <div class="form-overlay-filter"></div>
+    <form action="/teams/{{team.id}}" method="post" class="edit-form">
+        <div class="form-title-wrapper">
+            <img src="/static/images/{{team.name}}.jpg" class="flag-rect" alt="Accompanying flag">
+            <h3 class="edit-form-title">Edit team details</h3>
+        </div>
+        <div class="team-name-wrapper">
+            <input type="text" id="team_name" name="team_name" placeholder="Country name">
+        </div>
 
-<div class="team-card">
-    <h3>{{team.name}}</a></h3>
-    <div class="team-card-flag-wrapper">
-        <img src="/static/images/{{team.name}}.jpg" class = "flag-rect" alt = "Accompanying flag">
-    </div>
+        <div class="team-points-wrapper">
+            <input type="number" id="team_points" name="team_points" placeholder="Points (Currently {{team.points}})">
+        </div>
 
-<form action="/teams/{{team.id}}" method="post">
-  
-    <div class = "team-name-wrapper">
-        <label for="team_name">Country Name:</label>
-        <input type = "text" id = "team_name" name = "team_name">
-    </div>
+        <div class="group_id wrapper">
+            <select name="group_id" id="group_id" placeholder="Group">
+                <option value="" disabled selected hidden>Pool stage group</option>
+                <option value="1">Group 1</option>
+                <option value="2">Group 2</option>
+            </select>
+        </div>
+        <div class="submit-button">
+            <label for="submit"></label>
+            <input type="submit" value="Edit">
+        </div>
 
- 
-    <div class = "team-1-runs-wrapper">
-        <label for="team_points">Team points:</label>
-        <input type="number" id="team_points" name="team_points">
-    </div>
+    </form>
+</div>
 
-    <div class = "group_id wrapper">
-        <label for="group_id">Pool Stage group:</label>
-        <select name="group_id" id="group_id">
-            <option value="1">Group 1</option>
-            <option value="2">Group 2</option>
-        </select>
-    </div>
-
-    <div class="submit-button">
-        <label for="submit"></label>
-        <input type="submit" value= "Edit team">
-    </div>
-    
-
-   
-  </form>
-    
-
- 
 {% endblock %}

@@ -422,6 +422,19 @@ tbody tr:nth-of-type(2n) {
   text-decoration: none;
 }
 
+.edit-game-card {
+  margin-top: 5em;
+  display: flex;
+  justify-content: center;
+}
+.edit-game-card .game-card {
+  width: 40vw;
+}
+
+.team-games-margin-top {
+  margin-top: 5em;
+}
+
 .flag-icon {
   width: 25px;
   height: 25px;
@@ -606,10 +619,15 @@ tbody tr:nth-of-type(2n) {
   line-height: 1.5em;
   padding-top: 1.1em;
 }
-.new-game-form-container .new-form .team_1_wrapper, .new-game-form-container .new-form .team_2_wrapper, .new-game-form-container .new-form .team-1_runs-wrapper, .new-game-form-container .new-form .team_2_runs_wrapper, .new-game-form-container .new-form .game-date-wrapper {
+.new-game-form-container .new-form .team_1_wrapper,
+.new-game-form-container .new-form .team_2_wrapper,
+.new-game-form-container .new-form .team-1_runs-wrapper,
+.new-game-form-container .new-form .team_2_runs_wrapper,
+.new-game-form-container .new-form .game-date-wrapper {
   position: relative;
 }
-.new-game-form-container .new-form input, .new-game-form-container .new-form select {
+.new-game-form-container .new-form input,
+.new-game-form-container .new-form select {
   border: none;
   background-color: transparent;
   color: var(--text-primary);
@@ -631,6 +649,37 @@ tbody tr:nth-of-type(2n) {
 .new-game-form-container .new-form .submit-button input {
   color: var(--nav-text) !important;
   text-align: center;
+}
+
+.edit-team-form-container .edit-form {
+  padding: 1.5em;
+  width: clamp(200px, 25vw, 800px) !important;
+}
+.edit-team-form-container .edit-form .form-flag-wrapper {
+  padding-bottom: 0.75em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.edit-team-form-container .edit-form .score-wrapper {
+  text-align: center;
+}
+.edit-team-form-container .edit-form .score-wrapper p {
+  font-size: 0.85em;
+}
+.edit-team-form-container .edit-form .score-wrapper .edit-game-note {
+  padding: 0.55em 0 1.5em 0;
+}
+.edit-team-form-container .edit-form .form-title-wrapper,
+.edit-team-form-container .edit-form .form-flag-wrapper {
+  border: none !important;
+}
+.edit-team-form-container .edit-form .team-name-wrapper {
+  display: none;
+}
+.edit-team-form-container .edit-form .game-date-wrapper {
+  display: flex;
+  justify-content: start;
 }
 
 .new-team-form-container {
@@ -662,7 +711,8 @@ tbody tr:nth-of-type(2n) {
   line-height: 1.5em;
   padding-top: 1.1em;
 }
-.new-team-form-container .new-form input, .new-team-form-container .new-form select {
+.new-team-form-container .new-form input,
+.new-team-form-container .new-form select {
   border: none;
   background-color: transparent;
   color: var(--text-primary);
@@ -682,6 +732,74 @@ tbody tr:nth-of-type(2n) {
   margin: 1.5em auto;
 }
 .new-team-form-container .new-form .submit-button input {
+  color: var(--nav-text) !important;
+  text-align: center;
+}
+
+.edit-team-form-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.edit-team-form-container .edit-form {
+  display: flex;
+  flex-direction: column;
+  width: clamp(350px, 20vw, 600px);
+  min-height: 40vh;
+  background-color: var(--background-primary);
+  border-top: 5px solid var(--background-secondary);
+}
+.edit-team-form-container .edit-form * {
+  font-size: 1.1255em;
+}
+.edit-team-form-container .edit-form .form-title-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 1.5em;
+}
+.edit-team-form-container .edit-form .form-title-wrapper .flag-rect {
+  height: 30px;
+  width: auto;
+  align-self: center;
+  margin-left: 5%;
+}
+.edit-team-form-container .edit-form .form-title-wrapper .edit-form-title {
+  margin-right: 20%;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1.5em 0 0.75em;
+  text-transform: capitalize;
+}
+.edit-team-form-container .edit-form div:not(div:first-child, div:last-child) {
+  margin: 0 1.5em;
+  border-bottom: 2px solid var(--background-secondary);
+  line-height: 1.5em;
+  padding-top: 1.1em;
+}
+.edit-team-form-container .edit-form input,
+.edit-team-form-container .edit-form select {
+  border: none;
+  background-color: transparent;
+  color: var(--text-primary);
+  width: 95%;
+}
+.edit-team-form-container .edit-form ::placeholder {
+  color: var(--text-primary);
+  opacity: 1;
+}
+.edit-team-form-container .edit-form .submit-button {
+  background-color: var(--background-secondary);
+  color: var(--nav-text);
+  border-radius: 12.5%;
+  cursor: pointer;
+  width: fit-content;
+  padding: 0.5em;
+  margin: 1.5em auto;
+}
+.edit-team-form-container .edit-form .submit-button input {
   color: var(--nav-text) !important;
   text-align: center;
 }

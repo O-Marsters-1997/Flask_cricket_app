@@ -82,3 +82,21 @@
     color: var(--text-primary);
     text-decoration: none;
 }
+
+// Edit games
+
+.edit-game-card {
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+
+    & .game-card {
+        width: 40vw;
+    }
+}
+
+// All games that teams have featured in
+
+.team-games-margin-top {
+    margin-top: 5em;
+}

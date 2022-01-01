@@ -1,23 +1,33 @@
 {% extends "base.html"%}
 
 {% block content %}
-    <div class="game-card">
-        <h3>{{game.team_1.name}} vs {{game.team_2.name}}</a></h3>
-        <h4>{{game.game_date}}</h4>
-        <div class="game-card-flag-wrapper">
-            <img src="/static/images/{{game.team_1.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
-            <img src="/static/images/{{game.team_2.name}}.jpg" class = "flag-icon" alt = "Accompanying flag">
+    <div class="edit-game-card">
+        <div class="game-card">
+            <div class="game-card-title-wrapper">
+                <h3 class="fixture-title"><a href="/games/{{game.id}}">{{game.team_1.name}} vs
+                        {{game.team_2.name}}</a></h3>
+                <h4 class="game-date">{{game.game_date}}</h4>
+            </div>
+            <div class="game-card-flag-wrapper">
+                <div class="team-score-wrapper">
+                    <img src="/static/images/{{game.team_1.name}}.jpg" class="flag-icon" alt="Accompanying flag">
+                    <p class="team-score">{{game.team_1_runs}}</p>
+                </div>
+                <div class="team-score-wrapper">
+                    <img src="/static/images/{{game.team_2.name}}.jpg" class="flag-icon" alt="Accompanying flag">
+                    <p class="team-score">{{game.team_2_runs}}</p>
+                </div>
+            </div>
+            <div class="game-result">
+                {% if game.team_1_runs > game.team_2_runs %}
+                <em>{{game.team_1.name}} wins!</em>
+                {% elif game.team_2_runs > game.team_1_runs %}
+                <em>{{game.team_2.name}} wins!</em>
+                {% endif %}
+            </div>
+            <a href="/games/{{game.id}}/edit"><button>
+                Edit
+            </button></a>
         </div>
-        <div class="score-wrapper">
-            <p>{{game.team_1_runs}} runs vs {{game.team_2_runs}} runs</p>
-            {% if game.team_1_runs > game.team_2_runs %}
-            <em>{{game.team_1.name}} wins!</em>
-            {% elif game.team_2_runs > game.team_1_runs %}
-            <em>{{game.team_2.name}} wins!</em>
-            {% endif %}
-        </div>
-        <a href="/games/{{game.id}}/edit"><button>
-            Edit
-        </button></a>
     </div>
 {% endblock %}
