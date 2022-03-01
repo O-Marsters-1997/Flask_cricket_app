@@ -709,11 +709,7 @@ tbody tr:nth-of-type(2n) {
   margin: 0 1.5em;
   border-bottom: 2px solid var(--background-secondary);
   line-height: 1.5em;
-  padding-top: 1.1em;
-}
-.new-team-form-container .new-form input,
-.new-team-form-container .new-form select {
-  border: none;
+  padding-top: 1.1em;device-width;
   background-color: transparent;
   color: var(--text-primary);
   width: 95%;
