@@ -15,7 +15,7 @@ if ENV =='dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'http://localhost:5000'
 else:
     app.debug= False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ftyceuqgtqwfeu:27da0604226e180b6266c1364c2be036531ddecf08a594d656e74c9b40fe6957@ec2-99-80-108-106.eu-west-1.compute.amazonaws.com:5432/da2p5f62l76kqk'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://cpznoflvpdznkq:ff678a0d848c30b6d4fa86484024ad9fc63a56b5d49a2fe2eb42df386a70c265@ec2-18-204-131-56.compute-1.amazonaws.com:5432/d4ion1dim6m1jc'
 
 
 app.register_blueprint(table_blueprint)
