@@ -82,8 +82,8 @@ SQLAlchemy==1.4.26
 systemd-python==234
 toml==0.10.2
 tornado==6.1
-ubuntu-advantage-tools==27.6
-ubuntu-drivers-common==0.0.0
+# ubuntu-advantage-tools==27.6
+# ubuntu-drivers-common==0.0.0
 ufw==0.36
 unattended-upgrades==0.1
 urllib3==1.25.8
