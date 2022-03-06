@@ -1,6 +1,7 @@
 import pdb
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from services.database import db
 
 from models.team import Team
 
@@ -11,60 +12,81 @@ teams_blueprint = Blueprint("teams", __name__)
 
 
 # All Teams
-
 @teams_blueprint.route('/teams')
 def teams():
-    teams = team_repository.list_all()
+    teams = Team.query.order_by(Team.name).all()
+  
     return render_template('teams/index.html', teams=teams)
 
 @teams_blueprint.route('/teams/<id>', methods = ['GET'])
 def show(id):
-    team = team_repository.select(id)
+    team = Team.query.filter(Team.id==id).one_or_none()
     return render_template('teams/show.html', team=team)
 
 # CREATE
 #Create new Game
 @teams_blueprint.route("/teams/new", methods=['GET'])
 def new_team():
-    teams = team_repository.list_all()
+    teams = Team.query.all()
+
     return render_template("teams/new.html", teams=teams)
 
 
 #Post New Game
 @teams_blueprint.route("/teams",  methods=['POST'])
 def create_team():
-    name = request.form['team_name']
-    points = int(request.form['team_points'])
-    group_id = int(request.form['group_id'])
-    team = Team(name, points, group_id)
-    team_repository.save(team)
-    return redirect('/teams')
+    if request.method == 'POST':
+        team_name = request.form['team_name']
+        team_points = int(request.form['team_points'])
+        team_group_id = int(request.form['group_id'])
+        if team_name == '':
+            return render_template('teams/new.html')
+        if db.session.query(Team).filter(Team.name == team_name).count() == 0:
+            data = Team(team_name, team_points, team_group_id)
+            db.session.add(data)
+            db.session.commit()
+            return redirect('/teams')
+        return render_template('teams/new.html')
 
 
 # EDIT GET
 @teams_blueprint.route("/teams/<id>/edit", methods=['GET'])
 def edit_game(id):
-    team = team_repository.select(id)
+    team = Team.query.filter(Team.id==id).one_or_none()
     return render_template('teams/edit.html', team=team)
 
 # EDIT POST
 @teams_blueprint.route("/teams/<id>", methods=['POST'])
 def update_game(id):
-
-    team_name = request.form['team_name']
-    
-    team_points = request.form['team_points']
-    team_group_id = request.form['group_id']
-    # pdb.set_trace()
-
-
-    team = Team(team_name, team_points, team_group_id, id)
-    team_repository.update(team)
-    return redirect('/teams')
-
+    team_to_update = Team.query.filter(Team.id==id).one_or_none()
+    if request.method == 'POST':
+        team_to_update.name = team_to_update.name
+        team_to_update.points = request.form['team_points']
+        team_to_update.group_id = request.form['group_id']
+        print(team_to_update)
+        try:
+            db.session.commit()
+            return redirect('/teams')
+        except:
+            return redirect('/teams')
+    return render_template('teams/edit.html')
 
 #DELETE
 @teams_blueprint.route("/teams/<id>/delete", methods=['POST'])
 def delete_team(id):
-    team_repository.delete(id)
-    return redirect('/teams')
+    teams = Team.query.order_by(Team.name).all()
+    team = Team.query.filter(Team.id==id).one_or_none()
+    try:
+        db.session.delete(team)
+        db.session.commit()
+        return redirect('/teams')
+    except:
+        return redirect('/teams')
+
+
+    
+
+
+
+
+

@@ -14,11 +14,11 @@
         </div>
 
         <div class="team-points-wrapper">
-            <input type="number" id="team_points" name="team_points" placeholder="Points (Currently {{team.points}})">
+            <input type="number" id="team_points" name="team_points" placeholder="Points (Currently {{team.points}})" defaultValue={{team.points}}>
         </div>
 
         <div class="group_id wrapper">
-            <select name="group_id" id="group_id" placeholder="Group">
+            <select name="group_id" id="group_id" placeholder="Group" defaultValue={{team.group_id}}>
                 <option value="" disabled selected hidden>Pool stage group</option>
                 <option value="1">Group 1</option>
                 <option value="2">Group 2</option>
