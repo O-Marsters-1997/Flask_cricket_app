@@ -64,12 +64,13 @@ def update_game(id):
         team_to_update.name = team_to_update.name
         team_to_update.points = request.form['team_points']
         team_to_update.group_id = request.form['group_id']
-        print(team_to_update)
         try:
             db.session.commit()
             return redirect('/teams')
         except:
+            print("error")
             return redirect('/teams')
+          
     return render_template('teams/edit.html')
 
 #DELETE

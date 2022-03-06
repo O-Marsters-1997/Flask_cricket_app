@@ -10,7 +10,7 @@ from controllers.games_controller import games_blueprint
 # from controllers.book_controller import books_blueprint
 app = Flask(__name__)
 
-ENV = 'prod'
+ENV = 'dev'
 
 if ENV =='dev':
     app.debug= True
