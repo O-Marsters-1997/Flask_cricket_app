@@ -29,7 +29,6 @@ def show(id):
 @teams_blueprint.route("/teams/new", methods=['GET'])
 def new_team():
     teams = Team.query.all()
-
     return render_template("teams/new.html", teams=teams)
 
 

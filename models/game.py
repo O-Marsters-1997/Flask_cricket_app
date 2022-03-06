@@ -1,4 +1,16 @@
-class Game:
+
+# from controllers.teams_controller import teams
+from services.database import db
+
+class Game(db.Model):
+    __tablename__ = 'games'
+    id = db.Column(db.Integer, primary_key=True)
+    team_1 = db.Column(db.String(200), nullable=False)
+    team_2 = db.Column(db.String(200), nullable=False)
+    team_1_runs = db.Column(db.Integer, nullable=False)
+    team_2_runs = db.Column(db.Integer, nullable=False)
+    game_date = db.Column(db.DateTime, nullable=False)
+
     def __init__(self, team_1, team_2, team_1_runs, team_2_runs, game_date, id=None):
         self.team_1 = team_1
         self.team_2 = team_2

@@ -1,4 +1,5 @@
 from services.database import db
+from models.game import Game
 
 class Team(db.Model):
     __tablename__ = 'teams'
