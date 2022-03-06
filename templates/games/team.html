@@ -7,25 +7,25 @@
         <div class="game-grid-item team-games-margin-top">
             <div class="game-card">
                 <div class="game-card-title-wrapper">
-                    <h3 class="fixture-title"><a href="/games/{{game.id}}">{{game.team_1.name}} vs
-                            {{game.team_2.name}}</a></h3>
+                    <h3 class="fixture-title"><a href="/games/{{game.id}}">{{game.team_1}} vs
+                            {{game.team_2}}</a></h3>
                     <h4 class="game-date">{{game.game_date}}</h4>
                 </div>
                 <div class="game-card-flag-wrapper">
                     <div class="team-score-wrapper">
-                        <img src="/static/images/{{game.team_1.name}}.jpg" class="flag-icon" alt="Accompanying flag">
+                        <img src="/static/images/{{game.team_1}}.jpg" class="flag-icon" alt="Accompanying flag">
                         <p class="team-score">{{game.team_1_runs}}</p>
                     </div>
                     <div class="team-score-wrapper">
-                        <img src="/static/images/{{game.team_2.name}}.jpg" class="flag-icon" alt="Accompanying flag">
+                        <img src="/static/images/{{game.team_2}}.jpg" class="flag-icon" alt="Accompanying flag">
                         <p class="team-score">{{game.team_2_runs}}</p>
                     </div>
                 </div>
                 <div class="game-result">
                     {% if game.team_1_runs > game.team_2_runs %}
-                    <em>{{game.team_1.name}} wins!</em>
+                    <em>{{game.team_1}} wins!</em>
                     {% elif game.team_2_runs > game.team_1_runs %}
-                    <em>{{game.team_2.name}} wins!</em>
+                    <em>{{game.team_2}} wins!</em>
                     {% endif %}
                 </div>
                 <form class="game-delete-btn" action="/games/{{game.id}}/delete" method="POST">

@@ -82,8 +82,6 @@ def lower_points_deleted_game(game, team_1, team_2):
     sql_2 = 'SELECT team_2_runs FROM  games WHERE id = %s'
     values2 = [game.id]
     team_2_runs = run_sql(sql_2, values2)[0]
-    print(team_1_runs)
-    print(team_2_runs)
     if team_1_runs > team_2_runs:
         team_1.points -=2
     elif team_2_runs > team_1_runs:

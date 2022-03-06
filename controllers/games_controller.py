@@ -1,6 +1,7 @@
 import pdb
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from sqlalchemy import or_
 from db.run_sql import run_sql
 from services.database import db
 from models.game import Game
@@ -67,76 +68,79 @@ def create_team():
     return render_template('games/new.html', teams=teams)
 
 
-# CREATE
-# POST '/games'
-# @games_blueprint.route("/games",  methods=['POST'])
-# def create_game():
-#     team_1 = team_repository.select(request.form['team_1_id'])
-#     team_2 = team_repository.select(request.form['team_2_id'])
-#     team_1_runs = int(request.form['team_1_runs'])
-#     team_2_runs = int(request.form['team_2_runs'])
-#     game_date = request.form['game_date']
-#     game = Game(team_1, team_2, team_1_runs, team_2_runs, game_date)
-
-#     if team_1_runs > team_2_runs:
-#         team_1.points +=2
-    
-#     elif team_2_runs > team_1_runs:
-#         team_2.points +=2
-#     else:
-#         team_1.points +=1
-#         team_2.points +=1
-   
-
-#     team_repository.update(team_1)
-#     team_repository.update(team_2)
-   
-#     game_repository.save(game)
-#     return redirect('/games')
-
-
-# SHOW
-@games_blueprint.route("/games/<id>", methods=['GET'])
-def show_game(id):
-    game = game_repository.select(id)
-    return render_template('games/show.html', game=game)
 
 #Show games associated with team
 @games_blueprint.route("/team-games/<id>", methods=['GET'])
 def show_game_for_team(id):
-    team = team_repository.select(id)
-    games = team_repository.games(team)
-
+    team = Team.query.filter(Team.id == id).one_or_none()
+    games = Game.query.filter(or_(Game.team_1 == team.name, Game.team_2 == team.name))
+    print(games)
+    # games = games1 + games2
     return render_template('games/team.html', games = games)
+
+
 
 # EDIT GET
 @games_blueprint.route("/games/<id>/edit", methods=['GET'])
 def edit_game(id):
-    game = game_repository.select(id)
-    teams = team_repository.select_all()
+    game = Game.query.filter(Game.id==id).one_or_none()
+    teams = Team.query.order_by(Team.name).all()
     return render_template('games/edit.html', teams=teams, game=game)
+
+# EDIT POST
+# @games_blueprint.route("/games/<id>", methods=['POST'])
+# def update_game(id):
+#     team_1 = team_repository.select(request.form['team_1_id'])
+#     team_2 = team_repository.select(request.form['team_2_id'])
+#     team_1_runs = request.form['team_1_runs']
+#     team_2_runs = request.form['team_2_runs']
+#     game_date = request.form['game_date']
+
+#     game = Game(team_1, team_2, team_1_runs, team_2_runs, game_date, id)
+#     game_repository.update(game)
+#     return redirect('/games')
 
 # EDIT POST
 @games_blueprint.route("/games/<id>", methods=['POST'])
 def update_game(id):
-    team_1 = team_repository.select(request.form['team_1_id'])
-    team_2 = team_repository.select(request.form['team_2_id'])
-    team_1_runs = request.form['team_1_runs']
-    team_2_runs = request.form['team_2_runs']
-    game_date = request.form['game_date']
+    game_to_update = Game.query.filter(Game.id==id).one_or_none()
+    if request.method == 'POST':
+        game_to_update.team_1 = game_to_update.team_1
+        game_to_update.team_2 = game_to_update.team_2
+        game_to_update.team_1_runs = request.form['team_1_runs']
+        game_to_update.team_2_runs = request.form['team_2_runs']
+        game_to_update.game_date = request.form['game_date']
+        try:
+            db.session.commit()
+            return redirect('/games')
+        except:
+            print("error")
+            return redirect('/games')
+          
+    return render_template('games/edit.html')
 
-    game = Game(team_1, team_2, team_1_runs, team_2_runs, game_date, id)
-    game_repository.update(game)
-    return redirect('/games')
 
 #DELETE
 @games_blueprint.route("/games/<id>/delete", methods=['POST'])
-def delete_game(id):
-    game = game_repository.select(id)
-    team_1 = game.team_1
-    team_2 = game.team_2
-    game_repository.lower_points_deleted_game(game, team_1, team_2)
-    team_repository.update(team_1)
-    team_repository.update(team_2)
-    game_repository.delete(id)
-    return redirect('/games')
+def delete_team(id):
+    games = Game.query.all()
+    game = Game.query.filter(Game.id==id).one_or_none()
+    team_1_update = Team.query.filter(Team.name==game.team_1).one_or_none()
+    team_2_update = Team.query.filter(Team.name==game.team_2).one_or_none()
+
+    try:
+        db.session.delete(game)
+        db.session.commit()
+        if game.team_1_runs > game.team_2_runs:
+            team_1_update.points -=2
+        elif game.team_2_runs > game.team_1_runs:
+            team_2_update.points -=2
+        else:
+            team_1_update.points -= 1
+            team_2_update.points -= 1
+        db.session.commit()
+        return redirect('/games')
+    except:
+        return redirect('/games')
+    
+    
