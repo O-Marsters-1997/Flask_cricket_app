@@ -10,7 +10,7 @@ from controllers.games_controller import games_blueprint
 # from controllers.book_controller import books_blueprint
 app = Flask(__name__)
 
-ENV = 'dev'
+ENV = 'prod'
 
 if ENV =='dev':
     app.debug= True
@@ -20,7 +20,13 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://cpznoflvpdznkq:ff678a0d848c30b6d4fa86484024ad9fc63a56b5d49a2fe2eb42df386a70c265@ec2-18-204-131-56.compute-1.amazonaws.com:5432/d4ion1dim6m1jc'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+if app.config['SQLALCHEMY_DATABASE_URI'].startswith("postgres://"):
+    app.config['SQLALCHEMY_DATABASE_URI'] = app.config['SQLALCHEMY_DATABASE_URI'].replace("postgres://", "postgresql://", 1)
+
 db.init_app(app)
+with app.app_context():
+    db.create_all()
 
 @app.route('/create')
 def create():
