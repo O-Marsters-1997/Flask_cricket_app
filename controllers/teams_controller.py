@@ -25,6 +25,7 @@ def show(id):
 
 # CREATE
 #Create new Game
+# dfjkasdbfkj
 @teams_blueprint.route("/teams/new", methods=['GET'])
 def new_team():
     teams = Team.query.all()
