@@ -14,7 +14,7 @@ A Flask application that allows a user to stay up to date with the cricket world
 
 <br>
 
-## [The project can be found online hosted at this link](https://cwc-insider.herokuapp.com/)
+#### [The project can be found online hosted at this link](https://cwc-insider.herokuapp.com/)
 
 ## Features
 
@@ -93,7 +93,7 @@ flask run
 - The introduction of more models, so a competition can have player of the match, or player of the tournament, or an individual player's statistics can be viewable for each match.
 - The ability to have multiple tournaments, so that a user can search through either existing sporting tournaments, or through a backlog of records from previous years.
 
-N.B
+**N.B**
 
 1. There are two controllers and two repositories for games. There are also two repositories for teams. This is because as there are two groups in the competition, there are two tables for teams alone in the database.
 
