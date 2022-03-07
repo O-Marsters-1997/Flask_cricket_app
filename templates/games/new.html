@@ -8,20 +8,20 @@
     <h3 class="new-form-title">New game details</h3>
     <div class="team_1_wrapper">
       <!-- <label for="team_1_id">Batting First:</label> -->
-      <select id="team_1_id" name="team_1_id">
+      <select id="team_1" name="team_1">
         <option value="" disabled selected hidden>Batting first</option>
         {% for team in teams %}
-        <option value="{{ team.id }}">{{ team.name }}</option>
+        <option value="{{ team.name }}">{{ team.name }}</option>
         {% endfor %}
       </select>
     </div>
 
     <div class="team_2_wrapper">
       <!-- <label for="team_2_id">Batting last:</label> -->
-      <select id="team_2_id" name="team_2_id">
+      <select id="team_2" name="team_2">
         <option value="" disabled selected hidden>Batting second</option>
         {% for team in teams %}
-        <option value="{{ team.id }}">{{ team.name }}</option>
+        <option value="{{ team.name }}">{{ team.name }}</option>
         {% endfor %}
       </select>
     </div>

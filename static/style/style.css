@@ -381,6 +381,7 @@ tbody tr:nth-of-type(2n) {
 }
 .game-card .game-card-title-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: start;
   width: 100%;
   position: relative;
@@ -389,7 +390,6 @@ tbody tr:nth-of-type(2n) {
   padding-left: 2em;
 }
 .game-card .game-card-title-wrapper .game-date {
-  position: absolute;
   right: 10%;
   top: 20%;
 }
